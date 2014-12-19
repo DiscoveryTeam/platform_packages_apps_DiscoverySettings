@@ -44,8 +44,8 @@ import android.widget.TextView;
 
 import com.android.settings.R;
 
-import com.discovery.settings.fragments.batterylight.preference.ColorPickerView;
-import com.discovery.settings.fragments.batterylight.preference.ColorPickerView.OnColorChangedListener;
+import net.margaritov.preference.colorpicker.ColorPickerView;
+import net.margaritov.preference.colorpicker.ColorPickerView.OnColorChangedListener;
 
 import net.margaritov.preference.colorpicker.ColorPickerPanelView;
 
