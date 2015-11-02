@@ -181,6 +181,8 @@
     <string name="hardware_keys_action_split_screen">Schermo diviso</string>
     <string name="home_wake_key_title">Risveglio con tasto home</string>
     <string name="home_wake_key_summary">Risveglia il dispositivo premendo il tasto home</string>
+    <string name="home_press_vibration_title">Disabilita vibrazione tasto home</string>
+    <string name="home_press_vibration_summary">Disabilita la vibrazione quando si preme il tasto home</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -245,5 +247,22 @@
     <!-- Advanced QS -->
     <string name="advanced_qs_title">Tile avanzati</string>
     <string name="advanced_qs_summary">Singola pressione: attiva/disattiva funzione, pressione prolungata: visualizza informazioni avanzate</string>
+
+    <!-- Network traffic Settings -->
+    <string name="nettraffic_settings_title">Indicatore del traffico</string>
+    <string name="nettraffic_settings_summary">Opzioni indicatore del traffico</string>
+    <!-- Network traffic options -->
+    <string name="show_network_traffic_state">Monitor del traffico barra di stato</string>
+    <string name="show_network_traffic_unit">Unità</string>
+    <string name="show_network_traffic_frequency">Intervallo aggiornamento</string>
+    <string name="show_network_traffic_disable">Disabilitato</string>
+    <string name="show_network_traffic_up">In uscita</string>
+    <string name="show_network_traffic_down">In entrata</string>
+    <string name="show_network_traffic_all">In entrata e in uscita</string>
+    <string name="show_network_traffic_bit">Bit al secondo</string>
+    <string name="show_network_traffic_byte">Bytes al secondo</string>
+    <string name="network_traffic_autohide">Nascondi automaticamente</string>
+    <string name="network_traffic_autohide_summary">Nascondi l\'indicatore del traffico quando non vi è alcuna attività</string>
+    <string name="network_traffic_autohide_threshold">Soglia di inattività</string>
 
 </resources>
