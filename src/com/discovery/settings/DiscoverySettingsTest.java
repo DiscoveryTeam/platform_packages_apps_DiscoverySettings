@@ -72,6 +72,7 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
     private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String CATEGORY_BATTERY_LED = "battery_led_settings";
     public static final String TF_SCREENSHOT = "three_finger_gesture";
+    public static final String DOUBLE_TAP_VIBRATE = "double_tap_vibrate";
 
     private static final String EMPTY_STRING = "";
 
@@ -86,6 +87,7 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
     private SwitchPreference mScreenshotSound;
     //private Preference mBattLedFragment;
     private SwitchPreference mThreeFingerScreenshot;
+    private SwitchPreference mDoubleTapVibrate;
 
     @Override
     protected int getMetricsCategory() {
@@ -127,6 +129,9 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
 
         mThreeFingerScreenshot = (SwitchPreference) findPreference(TF_SCREENSHOT);
         mThreeFingerScreenshot.setOnPreferenceChangeListener(this);
+
+        mDoubleTapVibrate = (SwitchPreference) findPreference(DOUBLE_TAP_VIBRATE);
+        mDoubleTapVibrate.setOnPreferenceChangeListener(this);
 
 
         //mBattLedFragment = findPreference(KEY_BATTERY_LIGHT);
@@ -194,6 +199,12 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
         if (mThreeFingerScreenshot != null) {
             int value = Settings.System.getInt(getContentResolver(), TF_SCREENSHOT, 0);
             mThreeFingerScreenshot.setChecked(value != 0);
+        }
+
+        // Update double tap vibration
+        if (mDoubleTapVibrate != null) {
+            int value = Settings.System.getInt(getContentResolver(), DOUBLE_TAP_VIBRATE, 0);
+            mDoubleTapVibrate.setChecked(value != 0);
         }
     }
 
@@ -299,6 +310,10 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
         } else if (preference == mThreeFingerScreenshot) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(getContentResolver(), TF_SCREENSHOT, value ? 1 : 0);
+            return true;
+        } else if (preference == mDoubleTapVibrate) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getContentResolver(), DOUBLE_TAP_VIBRATE, value ? 1 : 0);
             return true;
         }
 

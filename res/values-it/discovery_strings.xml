@@ -267,4 +267,8 @@
     <string name="network_traffic_hidearrow">Nascondi frecce</string>
     <string name="network_traffic_hidearrow_summary">Nasconde le frecce dell\'indicatore</string>
 
+    <!-- double tap power button vibration -->
+    <string name="dbl_tap_vib_title">Vibrazione doppia pressione tasto accensione</string>
+    <string name="dbl_tap_vib_summary">Quando abilitato, vibra alla doppia pressione del tasto di accensione</string>
+
 </resources>
