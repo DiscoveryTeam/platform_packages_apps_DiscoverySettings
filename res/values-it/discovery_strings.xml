@@ -264,5 +264,7 @@
     <string name="network_traffic_autohide">Nascondi automaticamente</string>
     <string name="network_traffic_autohide_summary">Nascondi l\'indicatore del traffico quando non vi è alcuna attività</string>
     <string name="network_traffic_autohide_threshold">Soglia di inattività</string>
+    <string name="network_traffic_hidearrow">Nascondi frecce</string>
+    <string name="network_traffic_hidearrow_summary">Nasconde le frecce dell\'indicatore</string>
 
 </resources>
