@@ -71,6 +71,7 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
     public static final String SCREENSHOT_SOUND = "screenshot_sound";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String CATEGORY_BATTERY_LED = "battery_led_settings";
+    public static final String TF_SCREENSHOT = "three_finger_gesture";
 
     private static final String EMPTY_STRING = "";
 
@@ -84,6 +85,7 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
     private SwitchPreference mFingerprintVib;
     private SwitchPreference mScreenshotSound;
     //private Preference mBattLedFragment;
+    private SwitchPreference mThreeFingerScreenshot;
 
     @Override
     protected int getMetricsCategory() {
@@ -122,6 +124,9 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
 
         mScreenshotSound = (SwitchPreference) findPreference(SCREENSHOT_SOUND);
         mScreenshotSound.setOnPreferenceChangeListener(this);
+
+        mThreeFingerScreenshot = (SwitchPreference) findPreference(TF_SCREENSHOT);
+        mThreeFingerScreenshot.setOnPreferenceChangeListener(this);
 
 
         //mBattLedFragment = findPreference(KEY_BATTERY_LIGHT);
@@ -183,6 +188,12 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
         if (mScreenshotSound != null) {
             int value = Settings.System.getInt(getContentResolver(), SCREENSHOT_SOUND, 0);
             mScreenshotSound.setChecked(value != 0);
+        }
+
+        // Update three finger screenshot
+        if (mThreeFingerScreenshot != null) {
+            int value = Settings.System.getInt(getContentResolver(), TF_SCREENSHOT, 0);
+            mThreeFingerScreenshot.setChecked(value != 0);
         }
     }
 
@@ -284,6 +295,10 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
         } else if (preference == mScreenshotSound) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(getContentResolver(), SCREENSHOT_SOUND, value ? 1 : 0);
+            return true;
+        } else if (preference == mThreeFingerScreenshot) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getContentResolver(), TF_SCREENSHOT, value ? 1 : 0);
             return true;
         }
 

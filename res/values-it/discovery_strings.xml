@@ -210,4 +210,8 @@
     <string name="fp_unlock_keystore_title">Sblocco impronta all\'avvio</string>
     <string name="fp_unlock_keystore_summary">Sblocca il dispositivo con l\'impronta al riavvio del dispositivo senza utilizzare PIN/Password/Pattern.\nNota: a tuo rischio!</string>
 
+    <!-- Three finger swipe screenshot -->
+    <string name="three_finger_gesture">Screenshot con tre dita</string>
+    <string name="three_finger_gesture_summary">Scorri con tre dita sullo schermo per catturare una schermata</string>
+
 </resources>
