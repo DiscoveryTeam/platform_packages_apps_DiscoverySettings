@@ -75,10 +75,10 @@
         android:key="discovery_button"
         android:title="@string/discovery_button_settings" >
 
-        <!-- <PreferenceScreen
+        <PreferenceScreen
                 android:key="button_settings"
                 android:title="@string/buttons_pref_title"
-                android:fragment="com.discovery.settings.discovery.ButtonsSettings" /> -->
+                android:fragment="com.discovery.settings.fragments.ButtonsSettings" />
 
         <SwitchPreference
             android:key="volume_rocker_wake"

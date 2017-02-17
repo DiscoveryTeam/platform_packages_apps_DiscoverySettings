@@ -372,6 +372,14 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
             mButtonBrightness.setChecked(buttonBrightnessEnabled);
         }
 
+        if (navigationBarEnabled) {
+            Settings.Secure.putInt(getContentResolver(), Settings.Secure.HARDWARE_KEYS_DISABLE,
+                    1);
+        } else {
+            Settings.Secure.putInt(getContentResolver(), Settings.Secure.HARDWARE_KEYS_DISABLE,
+                    0);
+        }
+
         final PreferenceScreen prefScreen = getPreferenceScreen();
 
         final PreferenceCategory homeCategory =
