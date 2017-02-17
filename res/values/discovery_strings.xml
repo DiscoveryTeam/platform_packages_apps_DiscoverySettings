@@ -24,7 +24,9 @@
     <string name="double_twist_for_camera_mode_summary_pn">To switch in and out of selfie mode in Google Camera, double-twist when you’re in the app</string>
 
     <!-- Discovery Settings -->
+    <string name="header_category_discovery">Discovery</string>
     <string name="discovery_settings">Discovery Settings</string>
+    <string name="discovery_settings_summary">Customize your Discovery</string>
     <string name="discovery_led_settings">LED</string>
     <string name="discovery_notification_settings">Notification</string>
     <string name="discovery_statusbar_settings">Statusbar</string>
@@ -32,6 +34,7 @@
     <string name="discovery_button_settings">Button</string>
     <string name="discovery_misc_settings">Miscellaneous</string>
     <string name="header_category_discovery">Discovery</string>
+    <string name="discovery_additional_settings">Discovery Additions</string>
 
     <!-- Discovery version -->
     <string name="discovery_version">Discovery version</string>
