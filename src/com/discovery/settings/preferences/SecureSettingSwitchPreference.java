@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package com.pure.settings.preferences;
+package com.discovery.settings.preferences;
 
 import android.content.Context;
 import android.provider.Settings;
-import android.support.v7.preference.CheckBoxPreference;
+import android.support.v14.preference.SwitchPreference;
 import android.util.AttributeSet;
 
-public class SecureSettingCheckBoxPreference extends CheckBoxPreference {
-    public SecureSettingCheckBoxPreference(Context context, AttributeSet attrs, int defStyle) {
+public class SecureSettingSwitchPreference extends SwitchPreference {
+    public SecureSettingSwitchPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public SecureSettingCheckBoxPreference(Context context, AttributeSet attrs) {
+    public SecureSettingSwitchPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public SecureSettingCheckBoxPreference(Context context) {
+    public SecureSettingSwitchPreference(Context context) {
         super(context, null);
     }
 

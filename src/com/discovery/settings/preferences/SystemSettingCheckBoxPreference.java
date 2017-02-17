@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package com.pure.settings.preferences;
+package com.discovery.settings.preferences;
 
 import android.content.Context;
 import android.provider.Settings;
 import android.support.v7.preference.CheckBoxPreference;
 import android.util.AttributeSet;
 
-public class GlobalSettingCheckBoxPreference extends CheckBoxPreference {
-    public GlobalSettingCheckBoxPreference(Context context, AttributeSet attrs, int defStyle) {
+public class SystemSettingCheckBoxPreference extends CheckBoxPreference {
+    public SystemSettingCheckBoxPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public GlobalSettingCheckBoxPreference(Context context, AttributeSet attrs) {
+    public SystemSettingCheckBoxPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public GlobalSettingCheckBoxPreference(Context context) {
+    public SystemSettingCheckBoxPreference(Context context) {
         super(context, null);
     }
 
@@ -41,7 +41,7 @@ public class GlobalSettingCheckBoxPreference extends CheckBoxPreference {
                 // It's already there, so the same as persisting
                 return true;
             }
-            Settings.Global.putInt(getContext().getContentResolver(), getKey(), value ? 1 : 0);
+            Settings.System.putInt(getContext().getContentResolver(), getKey(), value ? 1 : 0);
             return true;
         }
         return false;
@@ -52,7 +52,7 @@ public class GlobalSettingCheckBoxPreference extends CheckBoxPreference {
         if (!shouldPersist()) {
             return defaultReturnValue;
         }
-        return Settings.Global.getInt(getContext().getContentResolver(),
+        return Settings.System.getInt(getContext().getContentResolver(),
                 getKey(), defaultReturnValue ? 1 : 0) != 0;
     }
 
@@ -60,6 +60,6 @@ public class GlobalSettingCheckBoxPreference extends CheckBoxPreference {
     protected boolean isPersisted() {
         // Using getString instead of getInt so we can simply check for null
         // instead of catching an exception. (All values are stored as strings.)
-        return Settings.Global.getString(getContext().getContentResolver(), getKey()) != null;
+        return Settings.System.getString(getContext().getContentResolver(), getKey()) != null;
     }
 }

@@ -18,7 +18,6 @@ package com.discovery.settings;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
-import com.android.internal.view.RotationPolicy;
 
 import android.app.Activity;
 import android.app.ActivityManagerNative;
@@ -84,11 +83,11 @@ public class DiscoverySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mKeyguardTorch;
     private SwitchPreference mFingerprintVib;
     private SwitchPreference mScreenshotSound;
-    private Preference mBattLedFragment;
+    //private Preference mBattLedFragment;
 
     @Override
     protected int getMetricsCategory() {
-        return -1;
+        return MetricsEvent.DISCOVERY;
     }
 
     @Override
@@ -98,7 +97,7 @@ public class DiscoverySettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.discovery_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
 
-        final PreferenceCategory leds = (PreferenceCategory) findPreference(CATEGORY_BATTERY_LED);
+        //final PreferenceCategory leds = (PreferenceCategory) findPreference(CATEGORY_BATTERY_LED);
 
         mDoubleTapSleepGesture = (SwitchPreference) findPreference(DOUBLE_TAP_SLEEP_GESTURE);
         mDoubleTapSleepGesture.setOnPreferenceChangeListener(this);
@@ -125,12 +124,12 @@ public class DiscoverySettings extends SettingsPreferenceFragment implements
         mScreenshotSound.setOnPreferenceChangeListener(this);
 
 
-        mBattLedFragment = findPreference(KEY_BATTERY_LIGHT);
+        //mBattLedFragment = findPreference(KEY_BATTERY_LIGHT);
         //remove battery led settings if device doesnt support it
-        if (!getResources().getBoolean(
-                com.android.internal.R.bool.config_intrusiveBatteryLed)) {
-            leds.removePreference(findPreference(CATEGORY_BATTERY_LED));
-        }
+        //if (!getResources().getBoolean(
+        //        com.android.internal.R.bool.config_intrusiveBatteryLed)) {
+        //    leds.removePreference(findPreference(CATEGORY_BATTERY_LED));
+        //}
     }
 
     @Override

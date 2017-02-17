@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.discovery.settings.discovery.notificationlight;
+package com.discovery.settings.notificationlight;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -46,7 +46,7 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import com.android.settings.R;
-import com.discovery.settings.discovery.notificationlight.ColorPickerView.OnColorChangedListener;
+import com.discovery.settings.notificationlight.ColorPickerView.OnColorChangedListener;
 
 import java.util.ArrayList;
 import java.util.IllegalFormatException;

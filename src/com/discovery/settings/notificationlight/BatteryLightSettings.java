@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.discovery.settings.discovery.notificationlight;
+package com.discovery.settings.notificationlight;
 
 import android.content.ContentResolver;
 import android.content.res.Resources;
@@ -23,7 +23,6 @@ import android.provider.Settings;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceGroup;
 import android.support.v7.preference.PreferenceScreen;
-import android.support.v14.preference.SwitchPreference;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -32,6 +31,7 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.discovery.settings.preferences.SystemSettingSwitchPreference;
 
 public class BatteryLightSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -47,8 +47,8 @@ public class BatteryLightSettings extends SettingsPreferenceFragment implements
     private ApplicationLightPreference mLowColorPref;
     private ApplicationLightPreference mMediumColorPref;
     private ApplicationLightPreference mFullColorPref;
-    private SwitchPreference mLightEnabledPref;
-    private SwitchPreference mPulseEnabledPref;
+    private SystemSettingSwitchPreference mLightEnabledPref;
+    private SystemSettingSwitchPreference mPulseEnabledPref;
 
     private static final int MENU_RESET = Menu.FIRST;
 
@@ -59,11 +59,8 @@ public class BatteryLightSettings extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        mLightEnabledPref = (SwitchPreference) findPreference(LIGHT_ENABLED_PREF);
-        mLightEnabledPref.setOnPreferenceChangeListener(this);
-
-        mPulseEnabledPref = (SwitchPreference) findPreference(PULSE_ENABLED_PREF);
-        mPulseEnabledPref.setOnPreferenceChangeListener(this);
+        mLightEnabledPref = (SystemSettingSwitchPreference) prefSet.findPreference(LIGHT_ENABLED_PREF);
+        mPulseEnabledPref = (SystemSettingSwitchPreference) prefSet.findPreference(PULSE_ENABLED_PREF);
 
         // Does the Device support changing battery LED colors?
         if (getResources().getBoolean(com.android.internal.R.bool.config_multiColorBatteryLed)) {
@@ -84,29 +81,14 @@ public class BatteryLightSettings extends SettingsPreferenceFragment implements
         }
     }
 
-    private void updateState() {
-        final ContentResolver resolver = getActivity().getContentResolver();
-
-        if (mLightEnabledPref != null) {
-            int value = Settings.System.getInt(getContentResolver(), LIGHT_ENABLED_PREF, 0);
-            mLightEnabledPref.setChecked(value != 0);
-        }
-
-        if (mPulseEnabledPref != null) {
-            int value = Settings.System.getInt(getContentResolver(), PULSE_ENABLED_PREF, 0);
-            mPulseEnabledPref.setChecked(value != 0);
-        }
-    }
-
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.DISPLAY;
+        return MetricsEvent.DISCOVERY;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        updateState();
         refreshDefault();
     }
 
@@ -198,17 +180,6 @@ public class BatteryLightSettings extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         ApplicationLightPreference lightPref = (ApplicationLightPreference) preference;
         updateValues(lightPref.getKey(), lightPref.getColor());
-
-        if (preference == mLightEnabledPref) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getContentResolver(), LIGHT_ENABLED_PREF, value ? 1 : 0);
-        } else if (preference == mPulseEnabledPref) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getContentResolver(), PULSE_ENABLED_PREF, value ? 1 : 0);
-            return true;
-        }
-
-        updateState();
 
         return true;
     }

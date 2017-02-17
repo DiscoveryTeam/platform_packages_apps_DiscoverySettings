@@ -21,11 +21,11 @@
         android:key="general_section"
         android:title="@string/notification_light_general_title">
 
-        <SwitchPreference
+        <com.discovery.settings.preferences.SystemSettingSwitchPreference
             android:key="notification_light_pulse"
             android:title="@string/notification_light_title" />
 
-        <com.android.settings.notificationlight.ApplicationLightPreference
+        <com.discovery.settings.notificationlight.ApplicationLightPreference
             android:key="default"
             android:title="@string/notification_light_default_value"
             android:persistent="false"
@@ -37,7 +37,7 @@
         android:key="advanced_section"
         android:title="@string/advanced">
 
-        <SwitchPreference
+        <com.discovery.settings.preferences.SystemSettingSwitchPreference
             android:key="notification_light_pulse_custom_enable"
             android:title="@string/notification_light_use_custom"
             android:dependency="notification_light_pulse" />

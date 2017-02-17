@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.discovery.settings.discovery.notificationlight;
+package com.discovery.settings.notificationlight;
 
 import android.content.Context;
 import android.graphics.Canvas;

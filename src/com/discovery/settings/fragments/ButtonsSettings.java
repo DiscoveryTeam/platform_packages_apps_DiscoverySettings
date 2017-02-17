@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.discovery.settings.discovery;
+package com.discovery.settings.fragments;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -36,6 +36,9 @@ import android.support.v7.preference.PreferenceScreen;
 import android.support.v14.preference.SwitchPreference;
 import android.util.Log;
 import android.text.TextUtils;
+
+import com.android.internal.logging.MetricsLogger;
+import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -253,7 +256,7 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return -1;
+        return MetricsEvent.DISCOVERY;
     }
 
     private ListPreference initActionList(String key, int value) {

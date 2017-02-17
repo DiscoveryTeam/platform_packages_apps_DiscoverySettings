@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.discovery.settings.discovery.notificationlight;
+package com.discovery.settings.notificationlight;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -31,7 +31,6 @@ import android.provider.Settings;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceGroup;
 import android.support.v7.preference.PreferenceScreen;
-import android.support.v14.preference.SwitchPreference;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -45,8 +44,9 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.utils.PackageListAdapter;
-import com.android.settings.utils.PackageListAdapter.PackageItem;
+import com.discovery.settings.utils.PackageListAdapter;
+import com.discovery.settings.utils.PackageListAdapter.PackageItem;
+import com.discovery.settings.preferences.SystemSettingSwitchPreference;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,8 +65,6 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     public static final int ACTION_DELETE = 1;
     private static final int MENU_ADD = 0;
     private static final int DIALOG_APPS = 0;
-    public static final String NOTIFICATION_LIGHT_PULSE = "notification_light_pulse";
-    public static final String NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE = "notification_light_pulse_custom_enable";
 
     private boolean mMultiColorNotificationLed;
     private int mDefaultColor;
@@ -74,8 +72,8 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     private int mDefaultLedOff;
     private PackageManager mPackageManager;
     private PreferenceGroup mApplicationPrefList;
-    private SwitchPreference mEnabledPref;
-    private SwitchPreference mCustomEnabledPref;
+    private SystemSettingSwitchPreference mEnabledPref;
+    private SystemSettingSwitchPreference mCustomEnabledPref;
     private ApplicationLightPreference mDefaultPref;
     private Menu mMenu;
     private PackageListAdapter mPackageAdapter;
@@ -104,14 +102,14 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         mDefaultLedOff = resources.getInteger(
                 com.android.internal.R.integer.config_defaultNotificationLedOff);
 
-        mEnabledPref = (SwitchPreference)
+        mEnabledPref = (SystemSettingSwitchPreference)
                 findPreference(Settings.System.NOTIFICATION_LIGHT_PULSE);
         mEnabledPref.setOnPreferenceChangeListener(this);
 
         mDefaultPref = (ApplicationLightPreference) findPreference(DEFAULT_PREF);
         mDefaultPref.setOnPreferenceChangeListener(this);
 
-        mCustomEnabledPref = (SwitchPreference)
+        mCustomEnabledPref = (SystemSettingSwitchPreference)
                 findPreference(Settings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE);
         mCustomEnabledPref.setOnPreferenceChangeListener(this);
 
@@ -135,7 +133,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.DISPLAY;
+        return MetricsEvent.DISCOVERY;
     }
 
     @Override
@@ -293,20 +291,6 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         }
     }
 
-    private void updateState() {
-        final ContentResolver resolver = getActivity().getContentResolver();
-
-        if (mEnabledPref != null) {
-            int value = Settings.System.getInt(getContentResolver(), NOTIFICATION_LIGHT_PULSE, 0);
-            mEnabledPref.setChecked(value != 0);
-        }
-
-        if (mCustomEnabledPref != null) {
-            int value = Settings.System.getInt(getContentResolver(), NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE, 0);
-            mCustomEnabledPref.setChecked(value != 0);
-        }
-    }
-
     protected void resetColors() {
         ContentResolver resolver = getContentResolver();
 
@@ -349,16 +333,6 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
             updateValues(lightPref.getKey(), lightPref.getColor(),
                     lightPref.getOnValue(), lightPref.getOffValue());
         }
-
-        if (preference == mEnabledPref) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getContentResolver(), NOTIFICATION_LIGHT_PULSE, value ? 1 : 0);
-        } else if (preference == mCustomEnabledPref) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getContentResolver(), NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE, value ? 1 : 0);
-        }
-
-        updateState();
 
         return true;
     }
