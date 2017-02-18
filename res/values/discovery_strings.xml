@@ -37,6 +37,7 @@
     <string name="discovery_navbar_settings">Navbar</string>
     <string name="discovery_button_settings">Button</string>
     <string name="discovery_misc_settings">Miscellaneous</string>
+    <string name="discovery_lockscreen_settings">Lockscreen</string>
     <string name="header_category_discovery">Discovery</string>
     <string name="discovery_additional_settings">Discovery Additions</string>
     <string name="substratum_title">Substratum</string>
@@ -213,5 +214,9 @@
     <string name="menu_hide_substratum">Hide overlays</string>
 
     <string name="utouch_settings">U-Touch</string>
+
+    <!-- Fingerprint unlock keystore -->
+    <string name="fp_unlock_keystore_title">FP unlock</string>
+    <string name="fp_unlock_keystore_summary">Unlock device with fingerprint after reboot without PIN/Password/Pattern\nNote: at your own risk!</string>
 
 </resources>

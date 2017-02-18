@@ -30,6 +30,7 @@
     <string name="discovery_navbar_settings">Barra di navigazione</string>
     <string name="discovery_button_settings">Bottoni</string>
     <string name="discovery_misc_settings">Generali</string>
+    <string name="discovery_lockscreen_settings">Schermata\ndi blocco</string>
     <string name="header_category_discovery">Discovery</string>
     <string name="discovery_additional_settings">Aggiunte Discovery</string>
     <string name="substratum_title">Substratum</string>
@@ -204,5 +205,9 @@
     <string name="filter_substratum_apps">Substratum overlays</string>
     <string name="menu_show_substratum">Mostra overlays</string>
     <string name="menu_hide_substratum">Nascondi overlays</string>
+
+    <!-- Fingerprint unlock keystore -->
+    <string name="fp_unlock_keystore_title">Sblocco impronta all\'avvio</string>
+    <string name="fp_unlock_keystore_summary">Sblocca il dispositivo con l\'impronta al riavvio del dispositivo senza utilizzare PIN/Password/Pattern.\nNota: a tuo rischio!</string>
 
 </resources>
