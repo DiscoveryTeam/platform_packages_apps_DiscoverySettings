@@ -28,6 +28,9 @@
     <string name="discovery_settings">Discovery Settings</string>
     <string name="discovery_settings_summary">Customize your Discovery</string>
     <string name="discovery_led_settings">LED</string>
+    <string name="discovery_clock_settings">Clock</string>
+    <string name="discovery_battery_light_settings">Battery LED</string>
+    <string name="discovery_notification_light_settings">Notification LED</string>
     <string name="discovery_notification_settings">Notification</string>
     <string name="discovery_statusbar_settings">Statusbar</string>
     <string name="discovery_navbar_settings">Navbar</string>

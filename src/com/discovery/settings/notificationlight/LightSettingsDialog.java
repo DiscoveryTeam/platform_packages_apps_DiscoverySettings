@@ -46,6 +46,9 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import com.android.settings.R;
+
+import com.discovery.settings.notificationlight.ColorPanelView;
+import com.discovery.settings.notificationlight.ColorPickerView;
 import com.discovery.settings.notificationlight.ColorPickerView.OnColorChangedListener;
 
 import java.util.ArrayList;
