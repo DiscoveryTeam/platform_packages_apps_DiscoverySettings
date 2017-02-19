@@ -29,6 +29,7 @@
     <string name="discovery_settings_summary">Customize your Discovery</string>
     <string name="discovery_led_settings">LED</string>
     <string name="discovery_clock_settings">Clock</string>
+    <string name="discovery_battery_settings">Battery Icon</string>
     <string name="discovery_battery_light_settings">Battery LED</string>
     <string name="discovery_notification_light_settings">Notification LED</string>
     <string name="discovery_notification_settings">Notification</string>
@@ -180,5 +181,24 @@
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
     <string name="color_default">Default</string>
+
+    <!-- Settings - Battery Options -->
+    <string name="battery_icon_options_title">Battery icon</string>
+
+    <!-- Settings - Battery Style -->
+    <string name="status_bar_battery_style_title">Battery status style</string>
+    <string name="status_bar_battery_style_circle">Circle</string>
+    <string name="status_bar_battery_style_dotted_circle">Dotted circle</string>
+    <string name="status_bar_battery_style_text">Text</string>
+   <string name="status_bar_battery_style_hidden">Hidden</string>
+    <string name="status_bar_battery_style_icon_portrait">Icon portrait</string>
+    <string name="status_bar_battery_style_icon_landscape">Icon landscape</string>
+
+    <!-- Settings - Battery percentage -->
+    <string name="status_bar_battery_percentage_title">Show battery percentage</string>
+    <string name="status_bar_battery_percentage_dialog_title">Battery percentage</string>
+    <string name="status_bar_battery_percentage_default">Hidden (default)</string>
+    <string name="status_bar_battery_percentage_text_inside">Inside the icon</string>
+    <string name="status_bar_battery_percentage_text_next">Next to the icon</string>
 
 </resources>

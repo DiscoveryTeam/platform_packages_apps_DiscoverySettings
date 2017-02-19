@@ -25,6 +25,7 @@ import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.discovery.settings.DiscoverySettingsTest;
+import com.discovery.settings.fragments.BatterySettings;
 import com.discovery.settings.fragments.ButtonsSettings;
 import com.discovery.settings.fragments.ClockSettings;
 import com.discovery.settings.notificationlight.BatteryLightSettings;
@@ -87,8 +88,9 @@ public class DiscoverySettings extends SettingsPreferenceFragment {
             frags[0] = new DiscoverySettingsTest();
             frags[1] = new ButtonsSettings();
             frags[2] = new ClockSettings();
-            frags[3] = new BatteryLightSettings();
-            frags[4] = new NotificationLightSettings();
+            frags[3] = new BatterySettings();
+            frags[4] = new BatteryLightSettings();
+            frags[5] = new NotificationLightSettings();
         }
 
         @Override
@@ -114,6 +116,7 @@ public class DiscoverySettings extends SettingsPreferenceFragment {
             getString(R.string.discovery_misc_settings),
             getString(R.string.discovery_button_settings),
             getString(R.string.discovery_clock_settings),
+            getString(R.string.discovery_battery_settings),
             getString(R.string.discovery_battery_light_settings),
             getString(R.string.discovery_notification_light_settings)
         };
