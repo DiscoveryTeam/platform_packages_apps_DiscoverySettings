@@ -44,4 +44,10 @@
     <string name="status_bar_battery_percentage_text_inside">Im Batterie Icon</string>
     <string name="status_bar_battery_percentage_text_next">Neben Batterie Icon</string>
 
+    <!-- OMS7-N / Substratum -->
+    <!-- Manage applications: show substratum overlays -->
+    <string name="filter_substratum_apps">Substratum overlays</string>
+    <string name="menu_show_substratum">Overlays anzeigen</string>
+    <string name="menu_hide_substratum">Overlays ausblenden</string>
+
 </resources>
