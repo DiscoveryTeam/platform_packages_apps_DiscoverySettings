@@ -40,6 +40,8 @@
     <string name="header_category_discovery">Discovery</string>
     <string name="discovery_additional_settings">Discovery Additions</string>
     <string name="substratum_title">Substratum</string>
+    <string name="supersu_title">SuperSU</string>
+    <string name="supersu_summary">Control root access</string>
 
     <!-- Discovery version -->
     <string name="discovery_version">Discovery version</string>
