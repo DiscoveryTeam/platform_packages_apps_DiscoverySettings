@@ -210,4 +210,6 @@
     <string name="menu_show_substratum">Show overlays</string>
     <string name="menu_hide_substratum">Hide overlays</string>
 
+    <string name="utouch_settings">U-Touch</string>
+
 </resources>
