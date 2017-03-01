@@ -167,6 +167,8 @@
     <string name="hardware_keys_action_in_app_search">Ricerca in-app</string>
     <string name="hardware_keys_action_launch_camera">Apri fotocamera</string>
     <string name="hardware_keys_action_last_app">Apri l\'ultima app</string>
+    <string name="home_wake_key_title">Risveglio con tasto home</string>
+    <string name="home_wake_key_summary">Risveglia il dispositivo premendo il tasto home</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>

@@ -30,6 +30,13 @@
         android:summary="@string/hardware_brightness_keys_summary"
         android:persistent="false" />
 
+    <SwitchPreference
+        android:key="home_wake_key"
+        android:title="@string/home_wake_key_title"
+        android:summary="@string/home_wake_key_summary"
+        android:defaultValue="true"
+        android:persistent="false" />
+
     <PreferenceCategory
         android:key="home_key"
         android:title="@string/hardware_keys_home_key_title" >

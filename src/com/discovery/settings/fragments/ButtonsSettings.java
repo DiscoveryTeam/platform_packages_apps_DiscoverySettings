@@ -77,6 +77,8 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
     private static final String KEY_CAMERA_LONG_PRESS      = "hardware_keys_camera_long_press";
     private static final String KEY_CAMERA_DOUBLE_TAP      = "hardware_keys_camera_double_tap";
 
+    private static final String KEY_HOME_WAKE              = "home_wake_key";
+
     private static final String KEY_CATEGORY_HOME          = "home_key";
     private static final String KEY_CATEGORY_BACK          = "back_key";
     private static final String KEY_CATEGORY_MENU          = "menu_key";
@@ -102,6 +104,8 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
     private ListPreference mAppSwitchDoubleTapAction;
     private ListPreference mCameraLongPressAction;
     private ListPreference mCameraDoubleTapAction;
+
+    private SwitchPreference mHomeWakeKey;
 
     private SwitchPreference mNavigationBar;
     private SwitchPreference mButtonBrightness;
@@ -136,6 +140,16 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
                 mButtonBrightness.setOnPreferenceChangeListener(this);
             } else {
                 prefScreen.removePreference(mButtonBrightness);
+            }
+        }
+
+        /* Home key wake devicec */
+        mHomeWakeKey = (SwitchPreference) findPreference(KEY_HOME_WAKE);
+        if (mHomeWakeKey != null) {
+            if (mDeviceHardwareKeys > 0) {
+                mHomeWakeKey.setOnPreferenceChangeListener(this);
+            } else {
+                prefScreen.removePreference(mHomeWakeKey);
             }
         }
 
@@ -319,6 +333,8 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
             return Settings.System.NAVIGATION_BAR_ENABLED;
         } else if (preference == mButtonBrightness) {
             return Settings.System.BUTTON_BRIGHTNESS_ENABLED;
+        } else if (preference == mHomeWakeKey) {
+            return Settings.System.HOME_WAKE_SCREEN;
         } else if (preference == mHomeLongPressAction) {
             return Settings.System.KEY_HOME_LONG_PRESS_ACTION;
         } else if (preference == mHomeDoubleTapAction) {
@@ -370,6 +386,11 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
 
         if (mButtonBrightness != null) {
             mButtonBrightness.setChecked(buttonBrightnessEnabled);
+        }
+
+        if (mHomeWakeKey != null) {
+            int value = Settings.System.getInt(getContentResolver(), KEY_HOME_WAKE, 0);
+            mHomeWakeKey.setChecked(value != 0);
         }
 
         if (navigationBarEnabled) {
@@ -449,6 +470,12 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
         if (handled) {
             reload();
         }
+
+        if (preference == mHomeWakeKey) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(), KEY_HOME_WAKE, value ? 1 : 0);
+        }
+
         return handled;
     }
 
