@@ -236,4 +236,8 @@
     <string name="magisk_title">Magisk Manager</string>
     <string name="magisk_summary">Root management</string>
 
+    <!-- One handed mode -->
+    <string name="one_handed_mode_title">One Handed mode</string>
+    <string name="one_handed_mode_summary">Allows swiping on the navigation bar to enable one handed mode</string>
+
 </resources>

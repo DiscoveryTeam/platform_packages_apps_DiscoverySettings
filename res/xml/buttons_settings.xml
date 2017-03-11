@@ -24,6 +24,13 @@
         android:summary="@string/enable_navigation_bar_summary"
         android:defaultValue="false" />
 
+    <com.discovery.settings.preferences.SecureSettingSwitchPreference
+        android:dependency="navigation_bar"
+        android:key="single_hand_mode"
+        android:title="@string/one_handed_mode_title"
+        android:summary="@string/one_handed_mode_summary"
+        android:defaultValue="false" />
+
     <SwitchPreference
         android:key="button_brightness"
         android:title="@string/hardware_brightness_keys_title"
