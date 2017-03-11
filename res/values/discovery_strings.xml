@@ -223,4 +223,8 @@
     <string name="three_finger_gesture">Three finger screenshot</string>
     <string name="three_finger_gesture_summary">Swipe three fingers across the screen to screenshot</string>
 
+    <!-- Magisk -->
+    <string name="magisk_title">Magisk Manager</string>
+    <string name="magisk_summary">Root management</string>
+
 </resources>

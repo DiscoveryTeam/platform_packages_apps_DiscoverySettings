@@ -377,6 +377,9 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
         final boolean buttonBrightnessEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.BUTTON_BRIGHTNESS_ENABLED, 1, UserHandle.USER_CURRENT) != 0;
 
+        final boolean homeWakeEnabled = Settings.System.getIntForUser(resolver,
+                Settings.System.HOME_WAKE_SCREEN, 1, UserHandle.USER_CURRENT) != 0;
+
         if (mNavigationBar != null) {
             mNavigationBar.setChecked(navigationBarEnabled);
         }
@@ -386,8 +389,7 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
         }
 
         if (mHomeWakeKey != null) {
-            int value = Settings.System.getInt(getContentResolver(), KEY_HOME_WAKE, 0);
-            mHomeWakeKey.setChecked(value != 0);
+            mHomeWakeKey.setChecked(homeWakeEnabled);
         }
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
@@ -414,6 +416,12 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
             mButtonBrightness.setEnabled(!navigationBarEnabled);
         } else if (mDeviceHardwareKeys == 0 && mButtonBrightness != null) {
             prefScreen.removePreference(mButtonBrightness);
+        }
+
+        if (hasHome) {
+            mHomeWakeKey.setEnabled(!navigationBarEnabled);
+        } else {
+            prefScreen.removePreference(mHomeWakeKey);
         }
 
         if (hasHome && homeCategory != null) {
@@ -459,12 +467,6 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
         if (handled) {
             reload();
         }
-
-        if (preference == mHomeWakeKey) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(getContentResolver(), KEY_HOME_WAKE, value ? 1 : 0);
-        }
-
         return handled;
     }
 

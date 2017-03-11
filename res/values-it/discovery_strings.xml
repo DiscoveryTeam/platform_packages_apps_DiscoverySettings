@@ -214,4 +214,8 @@
     <string name="three_finger_gesture">Screenshot con tre dita</string>
     <string name="three_finger_gesture_summary">Scorri con tre dita sullo schermo per catturare una schermata</string>
 
+    <!-- Magisk -->
+    <string name="magisk_title">Magisk Manager</string>
+    <string name="magisk_summary">Controlla accesso root</string>
+
 </resources>
