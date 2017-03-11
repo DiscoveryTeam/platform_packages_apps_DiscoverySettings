@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2017 Discovery
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+         http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Wakeup section under Display settings -->
+    <string name="wakeup_section_header">Wybudzanie</string>
+
+    <!-- Gesture Settings -->
+    <!-- Summary text for double twist for camera mode  [CHAR LIMIT=160]-->
+    <string name="double_twist_for_camera_mode_summary_pn">Obróc dwa razy aby przejść do trybu selfie w aparacie Google</string>
+
+    <!-- Discovery Settings -->
+    <string name="header_category_discovery">Discovery</string>
+    <string name="discovery_settings">Ustawienia Discovery</string>
+    <string name="discovery_settings_summary">Zmodyfikuj ROM Discovery</string>
+    <string name="discovery_led_settings">Dioda</string>
+    <string name="discovery_clock_settings">Zegar</string>
+    <string name="discovery_battery_settings">Ikona baterii</string>
+    <string name="discovery_battery_light_settings">Dioda baterii</string>
+    <string name="discovery_notification_light_settings">Dioda powiadomień</string>
+    <string name="discovery_notification_settings">Powiadomienia</string>
+    <string name="discovery_statusbar_settings">Pasek powiadomień</string>
+    <string name="discovery_navbar_settings">Pasek nawigacji</string>
+    <string name="discovery_button_settings">Przyciski</string>
+    <string name="discovery_misc_settings">Inne ustawienia</string>
+    <string name="discovery_lockscreen_settings">Ekran blokady</string>
+    <string name="header_category_discovery">Discovery</string>
+    <string name="discovery_additional_settings">Dodatki Discovery</string>
+    <string name="substratum_title">Substratum</string>
+    <string name="supersu_title">SuperSU</string>
+    <string name="supersu_summary">Kontrola dostępu do ROOT'a</string>
+
+    <!-- Discovery version -->
+    <string name="discovery_version">Wersja Discovery</string>
+    <string name="discovery_modversion">Wersja modyfikacji Discovery</string>
+    <string name="discovery_date_version">Data wydania</string>
+    <string name="discovery_version_default">Nieznany</string>
+
+    <!-- double tap to sleep - statusbar -->
+    <string name="double_tap_to_sleep_title">Podwójne stuknięcie aby uśpić urządzenie</string>
+    <string name="double_tap_to_sleep_summary">Stuknij dwa razy pasek powiadomień aby uśpić urządzenie</string>
+
+    <!-- Dev Options Enabled by Default -->
+    <string name="show_dev_already_enabled">Nie potrzebne, opcje programistyczne są domyślnie włączone.</string>
+
+    <!-- Volume rocker wake -->
+    <string name="volume_rocker_wake_title">Wybudzanie klawiszami głośności</string>
+    <string name="volume_rocker_wake_summary">Naciśnięcie klawiszy głośności wybudzi urządzenie</string>
+
+    <!-- Volume rocker music control -->
+    <string name="volume_rocker_music_controls_title">Kontrola muzyki klawiszami</string>
+    <string name="volume_rocker_music_controls_summary">Gdy ekran jest wygaszony, klawiszami głośności można przełączać utwory</string>
+
+    <!-- Clock settings -->
+    <string name="clock_settings_title">Opcje zegara</string>
+    <string name="clock_settings_summary">Opcje zegara i daty</string>
+    <!-- clock date options -->
+    <string name="clock_title_enable">Położenie</string>
+    <string name="status_bar_show_clock_title">Pokaż zegar i datę</string>
+    <string name="status_bar_clock_seconds_title">Pokaż sekundy</string>
+    <string name="status_bar_am_pm_title">AM/PM</string>
+    <string name="status_bar_am_pm_info">Format 24-godzinny</string>
+    <string name="right_clock">Zegar po prawej</string>
+    <string name="center_clock">Zegar wyśrodkowany</string>
+    <string name="left_clock">Zegar po lewej</string>
+    <string name="clock_date_display">Data</string>
+    <string name="clock_date_style">Styl daty</string>
+    <string name="clock_date_position">Pozycja daty</string>
+    <string name="clock_date_format">Format daty</string>
+    <string name="clock_date_string_edittext_title">Data musi być w formacie Miesiąc/Dzień/Rok</string>
+    <string name="clock_date_string_edittext_summary">Wprowadź</string>
+    <string name="clock_date_right">Na prawo od zegara</string>
+    <string name="clock_date_left">Na lewo od zegara</string>
+    <string name="clock_am_pm_date_normal">Normalny</string>
+    <string name="clock_am_pm_date_small">Mały</string>
+    <string name="clock_am_pm_date_none">Ukryty</string>
+    <string name="clock_date_style_lowercase">Małe litery</string>
+    <string name="clock_date_style_uppercase">Duże litery</string>
+    <string name="clock_date_format_custom">Inny format Java</string>
+
+    <!-- Navbar -->
+    <string name="enable_navigation_bar_title">Pasek nawigacji</string>
+    <string name="enable_navigation_bar_summary">Włącz pasek nawigacji</string>
+
+    <!-- Lockscreen torch -->
+    <string name="keyguard_torch_title">Latarka przy zablokowanym telefonie</string>
+    <string name="keyguard_torch_summary">Przytrzymanie klawisza zasilania przy wyłączonym ekranie włączy latarkę</string>
+
+    <!-- fingerprint authentication vibration -->
+    <string name="fprint_sucess_vib_title">Wybracja czytnika linii papilarnych</string>
+    <string name="fprint_sucess_vib_summary">Wibracja przy zeskanowaniu odcisku palca</string>
+
+    <!-- Screenshot sound -->
+    <string name="screenshot_sound_title">Dźwięk zrzutu ekranu</string>
+    <string name="screenshot_sound_summary">Efekt dźwiękowy przy robieniu zrzutu ekranu</string>
+
+    <!-- General strings -->
+    <string name="cancel">Anuluj</string>
+    <string name="save">Zapisz</string>
+    <string name="reset">Resetuj</string>
+    <string name="add">Dodaj</string>
+    <string name="choose_app">Wybierz aplikacje</string>
+
+    <!-- Notification/Battery lights -->
+    <string name="edit_light_settings">Zmień opcje diody powiadomień</string>
+    <string name="pulse_speed_title">Szybkość i częstotliwość pulsowania</string>
+    <string name="default_time">Normalna</string>
+    <string name="custom_time">Własne</string>
+    <string name="dialog_delete_title">Usuń</string>
+    <string name="dialog_delete_message">Usunąć zaznaczone elementy?</string>
+    <string name="pulse_length_always_on">Zawsze włączone</string>
+    <string name="pulse_length_very_short">Bardzo krótko</string>
+    <string name="pulse_length_short">Krótko</string>
+    <string name="pulse_length_normal">Normalnie</string>
+    <string name="pulse_length_long">Długo</string>
+    <string name="pulse_length_very_long">Bardzo długo</string>
+    <string name="pulse_speed_very_fast">Bardzo szybko</string>
+    <string name="pulse_speed_fast">Szybko</string>
+    <string name="pulse_speed_normal">Normalnie</string>
+    <string name="pulse_speed_slow">Powoli</string>
+    <string name="pulse_speed_very_slow">Bardzo powoli</string>
+    <string name="battery_led_category">Diody</string>
+    <string name="battery_light_title">Dioda baterii</string>
+    <string name="battery_low_pulse_title">Pulsowanie przy niskim poziomie baterii</string>
+    <string name="battery_light_list_title">Kolory</string>
+    <string name="battery_light_low_color_title">Niski poziom baterii</string>
+    <string name="battery_light_medium_color_title">Ładowanie</string>
+    <string name="battery_light_full_color_title">Ładowanie (90%)</string>
+    <string name="battery_light_really_full_color_title">Naładowana (100%)</string>
+    <string name="notif_led_category">Diody</string>
+    <string name="notification_light_title">Dioda powiadomień</string>
+    <string name="notification_light_general_title">Ogólne</string>
+    <string name="notification_light_applist_title">Aplikacje</string>
+    <string name="advanced">Zaawansowane</string>
+    <string name="notification_light_use_custom>Użyj własnych wartości</string>
+    <string name="notification_light_default_value">Domyślne</string>
+    <string name="notification_light_no_apps_summary">Aby dodać kontrolę diody w aplikacjach, aktywuj \'%1$s\' i naciścij \'\u002b\' w menu</string>
+    <string name="allow_lights_title">Dioda w trybie cichym</string>
+    <string name="notification_light_screen_on">Dioda powiadomień przy włączonym ekranie</string>
+
+    <!-- Buttons -->
+    <string name="buttons_pref_title">Opcje przycisków</string>
+    <string name="enable_navigation_bar_title">Pasek nawigacji</string>
+    <string name="enable_navigation_bar_summary">Włącz pasek nawigacji</string>
+    <string name="hardware_brightness_keys_title">Podświetlenie</string>
+    <string name="hardware_brightness_keys_summary">Włącz podświetlenie klawiszy nawigacji</string>
+    <string name="hardware_keys_home_key_title">Klawisz Home</string>
+    <string name="hardware_keys_back_key_title">Klawisz Wstecz</string>
+    <string name="hardware_keys_menu_key_title">Klawisz Menu</string>
+    <string name="hardware_keys_assist_key_title">Klawisz wsparcai</string>
+    <string name="hardware_keys_app_switch_key_title">Klawisz ostanich aplikacji</string>
+    <string name="hardware_keys_camera_key_title">Klawisz aparatu</string>
+    <string name="hardware_keys_short_press_title">Krótkie kliknięcie</string>
+    <string name="hardware_keys_long_press_title">Długie kliknięcie</string>
+    <string name="hardware_keys_double_tap_title">Podwójne kliknięcie</string>
+    <string name="hardware_keys_action_nothing">Brak akcji</string>
+    <string name="hardware_keys_action_menu">Otwórz/zamknij menu</string>
+    <string name="hardware_keys_action_app_switch">Ostanie aplikacje</string>
+    <string name="hardware_keys_action_search">Wyszukiwanie</string>
+    <string name="hardware_keys_action_voice_search">Wyszukiwanie głosowe</string>
+    <string name="hardware_keys_action_in_app_search">Wyszukiwanie w aplikacji</string>
+    <string name="hardware_keys_action_launch_camera">Otwórz aplikacje aparatu</string>
+    <string name="hardware_keys_action_last_app">Otwórz ostatnią aplikacje</string>
+    <string name="home_wake_key_title">Wybudzanie klawiszem Home</string>
+    <string name="home_wake_key_summary">Wybudź urządzenie poprzez naciśnięcie klawisza home</string>
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Wybierz kolor</string>
+    <string name="press_color_to_apply">Naciśnij na kolor poniżej, aby go ustawić</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#ff000000</string>
+    <string name="set">Zmień</string>
+    <string name="color_default">Domyślne</string>
+
+    <!-- Settings - Battery Options -->
+    <string name="battery_icon_options_title">Ikona baterii</string>
+
+    <!-- Settings - Battery Style -->
+    <string name="status_bar_battery_style_title">Styl ikony baterii</string>
+    <string name="status_bar_battery_style_circle">Okrąg</string>
+    <string name="status_bar_battery_style_dotted_circle">Podzielony okrąg</string>
+    <string name="status_bar_battery_style_text">Tekstowy</string>
+   <string name="status_bar_battery_style_hidden">Ukryty</string>
+    <string name="status_bar_battery_style_icon_portrait">Ikona pionowo</string>
+    <string name="status_bar_battery_style_icon_landscape">Ikona poziomo</string>
+
+    <!-- Settings - Battery percentage -->
+    <string name="status_bar_battery_percentage_title">Pokaż procent naładowania</string>
+    <string name="status_bar_battery_percentage_dialog_title">Umiejscowienie</string>
+    <string name="status_bar_battery_percentage_default">Ukryty (domyślnie)</string>
+    <string name="status_bar_battery_percentage_text_inside">W środku ikony</string>
+    <string name="status_bar_battery_percentage_text_next">Obok ikony</string>
+
+    <!-- OMS7-N / Substratum -->
+    <!-- Manage applications: show substratum overlays -->
+    <string name="filter_substratum_apps">Menu Substratum</string>
+    <string name="menu_show_substratum">Pokaż</string>
+    <string name="menu_hide_substratum">Ukryj</string>
+
+    <string name="utouch_settings">U-Touch</string>
+
+    <!-- Fingerprint unlock keystore -->
+    <string name="fp_unlock_keystore_title">Odblokowanie odciskiem palca</string>
+    <string name="fp_unlock_keystore_summary">Odblokowanie urządzenia odciskiem palca po restarcie z pominięciem PIN-u/Hasła/Wzoru\nNote: Używasz na własną odpowiedzialność!</string>
+
+    <!-- Three finger swipe screenshot -->
+    <string name="three_finger_gesture">Gest zrzutu ekranu</string>
+    <string name="three_finger_gesture_summary">Przesuń trzema palcami po ekranie aby zrobić zrzut ekranu</string>
+
+    <!-- Magisk -->
+    <string name="magisk_title">Menedżer Magisk</string>
+<string name="magisk_summary">Zarządzanie Root'em</string>
