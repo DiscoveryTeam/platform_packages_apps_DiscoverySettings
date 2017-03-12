@@ -148,9 +148,10 @@
     <string name="hardware_keys_action_app_switch">Recents</string>
     <string name="hardware_keys_action_search">Search assistant</string>
     <string name="hardware_keys_action_voice_search">Voice search</string>
-    <string name="hardware_keys_action_in_app_search">In-app search</string>
     <string name="hardware_keys_action_launch_camera">Open camera</string>
     <string name="hardware_keys_action_last_app">Launch last app</string>
+    <string name="hardware_keys_action_ohm_right">OneHandMode Right</string>
+    <string name="hardware_keys_action_ohm_left">OneHandMode Left</string>
 
     <!-- Buttons -->
     <string-array name="hardware_keys_action_entries" translatable="false">
@@ -159,9 +160,10 @@
         <item>@string/hardware_keys_action_app_switch</item>
         <item>@string/hardware_keys_action_search</item>
         <item>@string/hardware_keys_action_voice_search</item>
-        <item>@string/hardware_keys_action_in_app_search</item>
         <item>@string/hardware_keys_action_launch_camera</item>
         <item>@string/hardware_keys_action_last_app</item>
+        <item>@string/hardware_keys_action_ohm_right</item>
+        <item>@string/hardware_keys_action_ohm_left</item>
     </string-array>
  
     <string-array name="hardware_keys_action_values" translatable="false">
@@ -173,6 +175,7 @@
         <item>5</item>
         <item>6</item>
         <item>7</item>
+        <item>8</item>
     </string-array>
 
     <string-array name="status_bar_battery_style_entries" translatable="false">
@@ -201,7 +204,7 @@
 
     <string-array name="status_bar_battery_percentage_values" translatable="false">
         <item>0</item>
-       <item>1</item>
+        <item>1</item>
         <item>2</item>
     </string-array>
 
