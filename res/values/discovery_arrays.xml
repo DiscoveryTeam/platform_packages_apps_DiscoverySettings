@@ -146,24 +146,28 @@
     <string name="hardware_keys_action_nothing">No action</string>
     <string name="hardware_keys_action_menu">Open/close menu</string>
     <string name="hardware_keys_action_app_switch">Recents</string>
+    <string name="hardware_keys_action_back">Back</string>
     <string name="hardware_keys_action_search">Search assistant</string>
     <string name="hardware_keys_action_voice_search">Voice search</string>
     <string name="hardware_keys_action_launch_camera">Open camera</string>
     <string name="hardware_keys_action_last_app">Launch last app</string>
     <string name="hardware_keys_action_ohm_right">OneHandMode Right</string>
     <string name="hardware_keys_action_ohm_left">OneHandMode Left</string>
+    <string name="hardware_keys_action_split_screen">Split Screen</string>
 
     <!-- Buttons -->
     <string-array name="hardware_keys_action_entries" translatable="false">
         <item>@string/hardware_keys_action_nothing</item>
         <item>@string/hardware_keys_action_menu</item>
         <item>@string/hardware_keys_action_app_switch</item>
+        <item>@string/hardware_keys_action_back</item>
         <item>@string/hardware_keys_action_search</item>
         <item>@string/hardware_keys_action_voice_search</item>
         <item>@string/hardware_keys_action_launch_camera</item>
         <item>@string/hardware_keys_action_last_app</item>
         <item>@string/hardware_keys_action_ohm_right</item>
         <item>@string/hardware_keys_action_ohm_left</item>
+        <item>@string/hardware_keys_action_split_screen</item>
     </string-array>
  
     <string-array name="hardware_keys_action_values" translatable="false">
@@ -176,6 +180,8 @@
         <item>6</item>
         <item>7</item>
         <item>8</item>
+        <item>9</item>
+        <item>10</item>
     </string-array>
 
     <string-array name="status_bar_battery_style_entries" translatable="false">

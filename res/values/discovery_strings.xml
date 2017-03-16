@@ -36,6 +36,7 @@
     <string name="discovery_statusbar_settings">Statusbar</string>
     <string name="discovery_navbar_settings">Navbar</string>
     <string name="discovery_button_settings">Button</string>
+    <string name="discovery_button_category">Button</string>
     <string name="discovery_misc_settings">Miscellaneous</string>
     <string name="discovery_lockscreen_settings">Lockscreen</string>
     <string name="header_category_discovery">Discovery</string>

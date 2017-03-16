@@ -73,7 +73,7 @@
     <!-- Button -->
     <PreferenceCategory
         android:key="discovery_button"
-        android:title="@string/discovery_button_settings" >
+        android:title="@string/discovery_button_category" >
 
         <!-- <PreferenceScreen
                 android:key="button_settings"
