@@ -147,6 +147,8 @@
     <string name="hardware_keys_action_menu">Open/close menu</string>
     <string name="hardware_keys_action_app_switch">Recents</string>
     <string name="hardware_keys_action_back">Back</string>
+    <string name="hardware_keys_action_home">Home</string>
+    <string name="hardware_keys_action_screen_off">Screen off</string>
     <string name="hardware_keys_action_search">Search assistant</string>
     <string name="hardware_keys_action_voice_search">Voice search</string>
     <string name="hardware_keys_action_launch_camera">Open camera</string>
@@ -158,9 +160,11 @@
     <!-- Buttons -->
     <string-array name="hardware_keys_action_entries" translatable="false">
         <item>@string/hardware_keys_action_nothing</item>
+        <item>@string/hardware_keys_action_home</item>
         <item>@string/hardware_keys_action_menu</item>
-        <item>@string/hardware_keys_action_app_switch</item>
         <item>@string/hardware_keys_action_back</item>
+        <item>@string/hardware_keys_action_app_switch</item>
+        <item>@string/hardware_keys_action_screen_off</item>
         <item>@string/hardware_keys_action_search</item>
         <item>@string/hardware_keys_action_voice_search</item>
         <item>@string/hardware_keys_action_launch_camera</item>
@@ -182,6 +186,8 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
+        <item>11</item>
+        <item>12</item>
     </string-array>
 
     <string-array name="status_bar_battery_style_entries" translatable="false">
