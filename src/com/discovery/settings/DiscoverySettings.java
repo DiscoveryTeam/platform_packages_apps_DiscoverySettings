@@ -29,6 +29,7 @@ import com.discovery.settings.fragments.BatterySettings;
 import com.discovery.settings.fragments.ButtonsSettings;
 import com.discovery.settings.fragments.ClockSettings;
 import com.discovery.settings.fragments.LockscreenSettings;
+import com.discovery.settings.fragments.QsSettings;
 import com.discovery.settings.notificationlight.BatteryLightSettings;
 import com.discovery.settings.notificationlight.NotificationLightSettings;
 
@@ -90,9 +91,10 @@ public class DiscoverySettings extends SettingsPreferenceFragment {
             frags[1] = new ButtonsSettings();
             frags[2] = new ClockSettings();
             frags[3] = new LockscreenSettings();
-            frags[4] = new BatterySettings();
-            frags[5] = new BatteryLightSettings();
-            frags[6] = new NotificationLightSettings();
+            frags[4] = new QsSettings();
+            frags[5] = new BatterySettings();
+            frags[6] = new BatteryLightSettings();
+            frags[7] = new NotificationLightSettings();
         }
 
         @Override
@@ -119,6 +121,7 @@ public class DiscoverySettings extends SettingsPreferenceFragment {
             getString(R.string.discovery_button_settings),
             getString(R.string.discovery_clock_settings),
             getString(R.string.discovery_lockscreen_settings),
+            getString(R.string.discovery_qs_settings),
             getString(R.string.discovery_battery_settings),
             getString(R.string.discovery_battery_light_settings),
             getString(R.string.discovery_notification_light_settings)

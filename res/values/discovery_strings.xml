@@ -28,6 +28,7 @@
     <string name="discovery_settings">Discovery Settings</string>
     <string name="discovery_settings_summary">Customize your Discovery</string>
     <string name="discovery_led_settings">LED</string>
+    <string name="discovery_qs_settings">QS</string>
     <string name="discovery_clock_settings">Clock</string>
     <string name="discovery_battery_settings">Battery Icon</string>
     <string name="discovery_battery_light_settings">Battery LED</string>
