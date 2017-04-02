@@ -246,4 +246,8 @@
     <string name="one_handed_mode_title">One Handed mode</string>
     <string name="one_handed_mode_summary">Allows swiping on the navigation bar to enable one handed mode</string>
 
+    <!-- Advanced QS -->
+    <string name="advanced_qs_title">Advanced Quick Settings</string>
+    <string name="advanced_qs_summary">Single press: activate/disactivate function, long press: show advanced information</string>
+
 </resources>

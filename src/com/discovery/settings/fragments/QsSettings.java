@@ -15,100 +15,170 @@
 package com.discovery.settings.fragments;
 
 import android.content.ContentResolver;
-import android.database.ContentObserver;
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.RemoteException;
+import android.os.Handler;
+import android.os.UserHandle;
+import android.os.UserManager;
+import android.provider.SearchIndexableResource;
 import android.provider.Settings;
-import android.support.v14.preference.PreferenceFragment;
-import android.support.v7.preference.ListPreference;
+import android.provider.Settings.Secure;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.PreferenceCategory;
+import android.support.v7.preference.PreferenceScreen;
+import android.support.v14.preference.SwitchPreference;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
-import com.android.settings.R;
 
-public class QsSettings extends PreferenceFragment {
-//implements OnPreferenceChangeListener {
+import com.android.settings.R;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class QsSettings extends SettingsPreferenceFragment implements
+        OnPreferenceChangeListener, Indexable {
 
     private static final String TAG = "QsFragment";
 
-/*    private ListPreference mStatusBarBattery;
-    private ListPreference mStatusBarBatteryShowPercent;
+    private static final String QS_ADVANCED = "qs_advanced";
 
-    private int mbatteryStyle;
-    private int mbatteryShowPercent;
+    private static final String EMPTY_STRING = "";
 
-    private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
-    private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
-    private static final String STATUS_BAR_BATTERY_STYLE_HIDDEN = "4";
-    private static final String STATUS_BAR_BATTERY_STYLE_TEXT = "6";
+    private SwitchPreference mAdvancedQS;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        addPreferencesFromResource(R.xml.qs_settings);
+
         ContentResolver resolver = getActivity().getContentResolver();
 
-        mStatusBarBattery = (ListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
-        mStatusBarBatteryShowPercent =
-                (ListPreference) findPreference(STATUS_BAR_SHOW_BATTERY_PERCENT);
-
-        mbatteryStyle = Settings.Secure.getInt(resolver,
-                Settings.Secure.STATUS_BAR_BATTERY_STYLE, 0);
-        mStatusBarBattery.setValue(String.valueOf(mbatteryStyle));
-        mStatusBarBattery.setSummary(mStatusBarBattery.getEntry());
-        mStatusBarBattery.setOnPreferenceChangeListener(this);
-
-        mbatteryShowPercent = Settings.Secure.getInt(resolver,
-                Settings.Secure.STATUS_BAR_SHOW_BATTERY_PERCENT, 0);
-        mStatusBarBatteryShowPercent.setValue(String.valueOf(mbatteryShowPercent));
-        mStatusBarBatteryShowPercent.setSummary(mStatusBarBatteryShowPercent.getEntry());
-        mStatusBarBatteryShowPercent.setOnPreferenceChangeListener(this);
-        enableStatusBarBatteryDependents(String.valueOf(mbatteryStyle));
-    } */
+        mAdvancedQS = (SwitchPreference) findPreference(QS_ADVANCED);
+        if (mAdvancedQS != null) {
+            mAdvancedQS.setOnPreferenceChangeListener(this);
+        }
+    }
 
     @Override
-    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.qs_settings);
-    }
-
-/*    @Override
     public void onResume() {
         super.onResume();
-        getActivity().setTitle(R.string.battery_icon_options_title);
-
-        MetricsLogger.visibility(getContext(), MetricsEvent.TUNER, true);
-        enableStatusBarBatteryDependents(String.valueOf(mbatteryStyle));
+        reload();
     }
 
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mStatusBarBattery) {
-            mbatteryStyle = Integer.valueOf((String) newValue);
-            int index = mStatusBarBattery.findIndexOfValue((String) newValue);
-            Settings.Secure.putInt(
-                    resolver, Settings.Secure.STATUS_BAR_BATTERY_STYLE, mbatteryStyle);
-            mStatusBarBattery.setSummary(mStatusBarBattery.getEntries()[index]);
-            enableStatusBarBatteryDependents((String) newValue);
-            return true;
-        } else if (preference == mStatusBarBatteryShowPercent) {
-            mbatteryShowPercent = Integer.valueOf((String) newValue);
-            int index = mStatusBarBatteryShowPercent.findIndexOfValue((String) newValue);
-            Settings.Secure.putInt(resolver,
-                    Settings.Secure.STATUS_BAR_SHOW_BATTERY_PERCENT, mbatteryShowPercent);
-            mStatusBarBatteryShowPercent.setSummary(
-                    mStatusBarBatteryShowPercent.getEntries()[index]);
-            return true;
-        }
-        return false;
-     }
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsEvent.DISCOVERY;
+    }
 
-    private void enableStatusBarBatteryDependents(String value) {
-        boolean enabled = !(value.equals(STATUS_BAR_BATTERY_STYLE_TEXT)
-                || value.equals(STATUS_BAR_BATTERY_STYLE_HIDDEN));
-        mStatusBarBatteryShowPercent.setEnabled(enabled);
-    } */
+    private ListPreference initActionList(String key, int value) {
+        ListPreference list = (ListPreference) getPreferenceScreen().findPreference(key);
+        if (list != null) {
+            list.setValue(Integer.toString(value));
+            list.setSummary(list.getEntry());
+            list.setOnPreferenceChangeListener(this);
+        }
+        return list;
+    }
+
+
+    private boolean handleOnPreferenceChange(Preference preference, Object newValue) {
+        final String setting = getSystemPreferenceString(preference);
+
+        if (TextUtils.isEmpty(setting)) {
+            // No system setting.
+            return false;
+        }
+
+        if (preference != null && preference instanceof ListPreference) {
+            ListPreference listPref = (ListPreference) preference;
+            String value = (String) newValue;
+            int index = listPref.findIndexOfValue(value);
+            listPref.setSummary(listPref.getEntries()[index]);
+            Settings.Secure.putIntForUser(getContentResolver(), setting, Integer.valueOf(value),
+                    UserHandle.USER_CURRENT);
+        } else if (preference != null && preference instanceof SwitchPreference) {
+            boolean state = false;
+            if (newValue instanceof Boolean) {
+                state = (Boolean) newValue;
+            } else if (newValue instanceof String) {
+                state = Integer.valueOf((String) newValue) != 0;
+            }
+            Settings.Secure.putIntForUser(getContentResolver(), setting, state ? 1 : 0,
+                    UserHandle.USER_CURRENT);
+        }
+
+        return true;
+    }
+
+    private String getSystemPreferenceString(Preference preference) {
+        if (preference == null) {
+            return EMPTY_STRING;
+        } else if (preference == mAdvancedQS) {
+            return Settings.Secure.QS_ADVANCED;
+        }
+
+        return EMPTY_STRING;
+    }
+
+    private void reload() {
+        final ContentResolver resolver = getActivity().getContentResolver();
+
+        final boolean qsAdvancedEnabled = Settings.Secure.getInt(resolver,
+                Settings.Secure.QS_ADVANCED, 0) != 0;
+
+        if (mAdvancedQS != null) {
+            mAdvancedQS.setChecked(qsAdvancedEnabled);
+        }
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        final boolean handled = handleOnPreferenceChange(preference, newValue);
+        if (handled) {
+            reload();
+        }
+        return handled;
+    }
+
+    /**
+     * For Search.
+     */
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        new BaseSearchIndexProvider() {
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(
+                    Context context, boolean enabled) {
+                SearchIndexableResource sir = new SearchIndexableResource(context);
+                sir.xmlResId = R.xml.qs_settings;
+                return Arrays.asList(sir);
+            }
+
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                final ArrayList<String> result = new ArrayList<String>();
+
+                final UserManager um = (UserManager) context.getSystemService(Context.USER_SERVICE);
+                final int myUserId = UserHandle.myUserId();
+                final boolean isSecondaryUser = myUserId != UserHandle.USER_OWNER;
+
+                // TODO: Implement search index provider.
+
+                return result;
+            }
+        };
 }

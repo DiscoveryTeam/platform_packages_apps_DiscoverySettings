@@ -229,4 +229,8 @@
     <string name="one_handed_mode_title">Modalità una mano</string>
     <string name="one_handed_mode_summary">Scorri sulla barra di navigazione per usare la modalità una mano</string>
 
+    <!-- Advanced QS -->
+    <string name="advanced_qs_title">Tile avanzati</string>
+    <string name="advanced_qs_summary">Singola pressione: attiva/disattiva funzione, pressione prolungata: visualizza informazioni avanzate</string>
+
 </resources>

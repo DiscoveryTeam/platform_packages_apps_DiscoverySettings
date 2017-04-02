@@ -4,5 +4,11 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/discovery_qs_settings">
 
+    <SwitchPreference
+        android:key="qs_advanced"
+        android:title="@string/advanced_qs_title"
+        android:summary="@string/advanced_qs_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
 
