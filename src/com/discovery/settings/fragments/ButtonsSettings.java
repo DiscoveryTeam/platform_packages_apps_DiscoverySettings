@@ -440,7 +440,7 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
                 Settings.System.NAVIGATION_BAR_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
 
         final boolean buttonBrightnessEnabled = Settings.System.getIntForUser(resolver,
-                Settings.System.BUTTON_BRIGHTNESS_ENABLED, 1, UserHandle.USER_CURRENT) != 0;
+                Settings.System.BUTTON_BRIGHTNESS_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
 
         final boolean homeWakeEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.HOME_WAKE_SCREEN, 1, UserHandle.USER_CURRENT) != 0;
