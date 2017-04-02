@@ -193,8 +193,9 @@
 
     <!-- Settings - Battery Style -->
     <string name="status_bar_battery_style_title">Stile stato batteria</string>
-    <string name="status_bar_battery_style_circle">Circolare</string>
-    <string name="status_bar_battery_style_dotted_circle">Circolare punteggiato</string>
+    <string name="status_bar_battery_style_circle">Cerchio</string>
+    <string name="status_bar_battery_style_big_circle">Cerchio grande</string>
+    <string name="status_bar_battery_style_full_circle">Cerchio pieno</string>
     <string name="status_bar_battery_style_text">Testo</string>
    <string name="status_bar_battery_style_hidden">Nascosta</string>
     <string name="status_bar_battery_style_icon_portrait">Icona verticale</string>
