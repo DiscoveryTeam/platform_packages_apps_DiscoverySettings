@@ -56,9 +56,13 @@ public class QsSettings extends SettingsPreferenceFragment implements
 
     private static final String QS_ADVANCED = "qs_advanced";
 
+    private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
+
     private static final String EMPTY_STRING = "";
 
     private SwitchPreference mAdvancedQS;
+
+    private ListPreference mQuickPulldown;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -72,6 +76,10 @@ public class QsSettings extends SettingsPreferenceFragment implements
         if (mAdvancedQS != null) {
             mAdvancedQS.setOnPreferenceChangeListener(this);
         }
+        int qsquickPulldown = Settings.System.getIntForUser(resolver,
+                Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 1,
+                UserHandle.USER_CURRENT);
+        mQuickPulldown = initActionList(STATUS_BAR_QUICK_QS_PULLDOWN, qsquickPulldown);
     }
 
     @Override
@@ -130,6 +138,8 @@ public class QsSettings extends SettingsPreferenceFragment implements
             return EMPTY_STRING;
         } else if (preference == mAdvancedQS) {
             return Settings.Secure.QS_ADVANCED;
+        } else if (preference == mQuickPulldown) {
+            return Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN;
         }
 
         return EMPTY_STRING;
