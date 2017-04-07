@@ -43,8 +43,10 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
     private static final String TAG = "LockscreenSettings";
 
     private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
+    private static final String DOUBLE_TAP_SLEEP_LOCK_SCREEN = "double_tap_sleep_lock_screen";
 
     private SwitchPreference mFpKeystore;
+    private SwitchPreference mDt2sLockscreen;
     private FingerprintManager mFingerprintManager;
 
     @Override
@@ -69,6 +71,10 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
                 Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
             mFpKeystore.setOnPreferenceChangeListener(this);
         }
+        mDt2sLockscreen = (SwitchPreference) findPreference(DOUBLE_TAP_SLEEP_LOCK_SCREEN);
+        mDt2sLockscreen.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN, 0) == 1));
+        mDt2sLockscreen.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue){
@@ -79,7 +85,14 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
                 Settings.System.FP_UNLOCK_KEYSTORE, value ? 1 : 0);
 
             return true;
+        } else if (preference == mDt2sLockscreen) {
+            boolean value = (Boolean) objValue;
+
+            Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN, value ? 1 : 0);
+
+            return true;
         }
-	   return false;
+	return false;
     }
 }

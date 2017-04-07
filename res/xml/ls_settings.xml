@@ -23,4 +23,10 @@
 	    android:title="@string/fp_unlock_keystore_title"
 	    android:summary="@string/fp_unlock_keystore_summary"
 	    android:persistent="false" />
+
+	<SwitchPreference
+	    android:key="double_tap_sleep_lock_screen"
+	    android:title="@string/double_tap_sleep_lock_screen_title"
+	    android:summary="@string/double_tap_sleep_lock_screen_summary"
+	    android:persistent="false" />
 </PreferenceScreen>

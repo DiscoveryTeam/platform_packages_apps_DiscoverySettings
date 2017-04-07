@@ -44,6 +44,10 @@
     <string name="discovery_date_version">Data di rilascio Discovery</string>
     <string name="discovery_version_default">Sconosciuto</string>
 
+    <!-- double tap to sleep - lockscreen -->
+    <string name="double_tap_sleep_lock_screen_title">Doppio tap ovunque per spegnere</string>
+    <string name="double_tap_sleep_lock_screen_summary">Doppio tap nella lockscreen per spegnere lo schermo</string>
+
     <!-- double tap to sleep - statusbar -->
     <string name="double_tap_to_sleep_title">Doppio tap per spegnere</string>
     <string name="double_tap_to_sleep_summary">Doppio tap sulla barra di stato per spegnere lo schermo</string>
