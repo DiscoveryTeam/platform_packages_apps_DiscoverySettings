@@ -55,8 +55,7 @@ public class QsSettings extends SettingsPreferenceFragment implements
     private static final String TAG = "QsFragment";
 
     private static final String QS_ADVANCED = "qs_advanced";
-
-    private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
+    private static final String QUICK_PULLDOWN = "qs_pull_down";
 
     private static final String EMPTY_STRING = "";
 
@@ -76,10 +75,19 @@ public class QsSettings extends SettingsPreferenceFragment implements
         if (mAdvancedQS != null) {
             mAdvancedQS.setOnPreferenceChangeListener(this);
         }
+
+        mQuickPulldown = (ListPreference) findPreference(QUICK_PULLDOWN);
+        mQuickPulldown.setOnPreferenceChangeListener(this);
+        int quickPulldownValue = Settings.System.getIntForUser(resolver,
+                Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 1,
+                UserHandle.USER_CURRENT);
+        mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
+        updatePulldownSummary(quickPulldownValue);
+
         int qsquickPulldown = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 1,
                 UserHandle.USER_CURRENT);
-        mQuickPulldown = initActionList(STATUS_BAR_QUICK_QS_PULLDOWN, qsquickPulldown);
+        mQuickPulldown = initActionList(QUICK_PULLDOWN, qsquickPulldown);
     }
 
     @Override
@@ -103,6 +111,22 @@ public class QsSettings extends SettingsPreferenceFragment implements
         return list;
     }
 
+    private void updatePulldownSummary(int value) {
+        Resources res = getResources();
+
+        if (value == 0) {
+            // quick pulldown deactivated
+            mQuickPulldown.setSummary(res.getString(R.string.status_bar_quick_qs_pulldown_off));
+        } else if (value == 3) {
+            // quick pulldown always
+            mQuickPulldown.setSummary(res.getString(R.string.status_bar_quick_qs_pulldown_summary_always));
+        } else {
+            String direction = res.getString(value == 2
+                    ? R.string.status_bar_quick_qs_pulldown_left
+                    : R.string.status_bar_quick_qs_pulldown_right);
+            mQuickPulldown.setSummary(res.getString(R.string.status_bar_quick_qs_pulldown_summary, direction));
+        }
+    }
 
     private boolean handleOnPreferenceChange(Preference preference, Object newValue) {
         final String setting = getSystemPreferenceString(preference);
@@ -159,6 +183,16 @@ public class QsSettings extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final boolean handled = handleOnPreferenceChange(preference, newValue);
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        if (preference == mQuickPulldown) {
+            int quickPulldownValue = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(resolver, Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN,
+                    quickPulldownValue, UserHandle.USER_CURRENT);
+            updatePulldownSummary(quickPulldownValue);
+            return true;
+        }
+
         if (handled) {
             reload();
         }

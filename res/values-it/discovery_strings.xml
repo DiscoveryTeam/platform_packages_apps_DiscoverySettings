@@ -236,9 +236,11 @@
 
     <string name="status_bar_quick_qs_pulldown_title">Quick pulldown</string>
     <string name="status_bar_quick_qs_pulldown_summary">Il bordo %1$s della status bar visualizza i Quick Settings</string>
+    <string name="status_bar_quick_qs_pulldown_summary_always">Visualizza sempre le impostazioni rapide allo scorrimento della barra di stato</string>
     <string name="status_bar_quick_qs_pulldown_off">Disattivato</string>
-    <string name="status_bar_quick_qs_pulldown_left">sinistro</string>
-    <string name="status_bar_quick_qs_pulldown_right">destro</string>
+    <string name="status_bar_quick_qs_pulldown_left">Sinistro</string>
+    <string name="status_bar_quick_qs_pulldown_right">Destro</string>
+    <string name="status_bar_quick_qs_pulldown_everywhere">Ovunque</string>
 
     <!-- Advanced QS -->
     <string name="advanced_qs_title">Tile avanzati</string>
