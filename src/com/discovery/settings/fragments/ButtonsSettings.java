@@ -135,7 +135,11 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
         /* Navigation Bar */
         mNavigationBar = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR);
         if (mNavigationBar != null) {
-            mNavigationBar.setOnPreferenceChangeListener(this);
+            if (mDeviceHardwareKeys > 0) {
+                mNavigationBar.setOnPreferenceChangeListener(this);
+            } else {
+                prefScreen.removePreference(mNavigationBar);
+            }
         }
 
         /* Button Brightness */
