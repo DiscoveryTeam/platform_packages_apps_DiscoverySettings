@@ -62,7 +62,6 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
     private static final String TAG = "DiscoverySettings";
 
-    public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
     public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
     public static final String VOLUME_ROCKER_MUSIC_CONTROLS = "volume_rocker_music_controls";
     private static final String KEY_NAVIGATION_BAR         = "navigation_bar";
@@ -78,7 +77,6 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
 
     private Handler mHandler;
 
-    private SwitchPreference mDoubleTapSleepGesture;
     private SwitchPreference mVolRockerWake;
     private SwitchPreference mVolRockerMusic;
     private SwitchPreference mNavigationBar;
@@ -102,9 +100,6 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
         PreferenceScreen prefScreen = getPreferenceScreen();
 
         //final PreferenceCategory leds = (PreferenceCategory) findPreference(CATEGORY_BATTERY_LED);
-
-        mDoubleTapSleepGesture = (SwitchPreference) findPreference(DOUBLE_TAP_SLEEP_GESTURE);
-        mDoubleTapSleepGesture.setOnPreferenceChangeListener(this);
 
         mVolRockerWake = (SwitchPreference) findPreference(VOLUME_ROCKER_WAKE);
         mVolRockerWake.setOnPreferenceChangeListener(this);
@@ -153,12 +148,6 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
 
         final boolean navigationBarEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.NAVIGATION_BAR_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
-
-    	// Update d2ts
-        if (mDoubleTapSleepGesture != null) {
-            int value = Settings.System.getInt(getContentResolver(), DOUBLE_TAP_SLEEP_GESTURE, 0);
-            mDoubleTapSleepGesture.setChecked(value != 0);
-        }
 
         // Update volume rocker wake
         if (mVolRockerWake != null) {
@@ -283,11 +272,7 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
         final boolean handled = handleOnPreferenceChange(preference, objValue);
         final String key = preference.getKey();
 
-		if (preference == mDoubleTapSleepGesture) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getContentResolver(), DOUBLE_TAP_SLEEP_GESTURE, value ? 1 : 0);
-            return true;
-        } else if (preference == mVolRockerWake) {
+		if (preference == mVolRockerWake) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(getContentResolver(), VOLUME_ROCKER_WAKE, value ? 1 : 0);
             return true;
