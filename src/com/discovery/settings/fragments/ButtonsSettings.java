@@ -80,6 +80,7 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
     private static final String KEY_CAMERA_DOUBLE_TAP      = "hardware_keys_camera_double_tap";
 
     private static final String KEY_HOME_WAKE              = "home_wake_key";
+    private static final String KEY_HOME_VIBRATION         = "home_press_vibration";
 
     private static final String KEY_CATEGORY_HOME          = "home_key";
     private static final String KEY_CATEGORY_BACK          = "back_key";
@@ -113,6 +114,7 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
     private ListPreference mCameraDoubleTapAction;
 
     private SwitchPreference mHomeWakeKey;
+    private SwitchPreference mHomePressVibration;
 
     private SwitchPreference mNavigationBar;
     private SwitchPreference mButtonBrightness;
@@ -161,6 +163,16 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
                 mHomeWakeKey.setOnPreferenceChangeListener(this);
             } else {
                 prefScreen.removePreference(mHomeWakeKey);
+            }
+        }
+
+        /* Disable home key vibration */
+        mHomePressVibration = (SwitchPreference) findPreference(KEY_HOME_VIBRATION);
+        if (mHomePressVibration != null) {
+            if (mDeviceHardwareKeys > 0) {
+                mHomePressVibration.setOnPreferenceChangeListener(this);
+            } else {
+                prefScreen.removePreference(mHomePressVibration);
             }
         }
 
@@ -391,6 +403,8 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
             return Settings.System.BUTTON_BRIGHTNESS_ENABLED;
         } else if (preference == mHomeWakeKey) {
             return Settings.System.HOME_WAKE_SCREEN;
+        } else if (preference == mHomePressVibration) {
+            return Settings.System.HOME_PRESS_VIBRATION;
         } else if (preference == mHomeLongPressAction) {
             return Settings.System.KEY_HOME_LONG_PRESS_ACTION;
         } else if (preference == mHomeDoubleTapAction) {
@@ -449,6 +463,9 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
         final boolean homeWakeEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.HOME_WAKE_SCREEN, 1, UserHandle.USER_CURRENT) != 0;
 
+        final boolean homePressVibrationEnabled = Settings.System.getIntForUser(resolver,
+                Settings.System.HOME_PRESS_VIBRATION, 0, UserHandle.USER_CURRENT) != 0;
+
         if (mNavigationBar != null) {
             mNavigationBar.setChecked(navigationBarEnabled);
         }
@@ -459,6 +476,10 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
 
         if (mHomeWakeKey != null) {
             mHomeWakeKey.setChecked(homeWakeEnabled);
+        }
+
+        if (mHomePressVibration != null) {
+            mHomePressVibration.setChecked(homePressVibrationEnabled);
         }
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
@@ -491,6 +512,12 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
             mHomeWakeKey.setEnabled(!navigationBarEnabled);
         } else {
             prefScreen.removePreference(mHomeWakeKey);
+        }
+
+        if (hasHome) {
+            mHomePressVibration.setEnabled(!navigationBarEnabled);
+        } else {
+            prefScreen.removePreference(mHomePressVibration);
         }
 
         if (hasHome && homeCategory != null) {

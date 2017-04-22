@@ -44,6 +44,13 @@
         android:defaultValue="true"
         android:persistent="false" />
 
+    <SwitchPreference
+        android:key="home_press_vibration"
+        android:title="@string/home_press_vibration_title"
+        android:summary="@string/home_press_vibration_summary"
+        android:defaultValue="true"
+        android:persistent="false" />
+
     <PreferenceCategory
         android:key="home_key"
         android:title="@string/hardware_keys_home_key_title" >

@@ -187,6 +187,8 @@
     <string name="hardware_keys_action_last_app">Launch last app</string>
     <string name="home_wake_key_title">Home button wake device</string>
     <string name="home_wake_key_summary">Wake device by pressing home button</string>
+    <string name="home_press_vibration_title">Disable home button vibration</string>
+    <string name="home_press_vibration_summary">Disable home button vibration on press</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
