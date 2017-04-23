@@ -94,6 +94,7 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
     private Handler mHandler;
 
     private int mDeviceHardwareKeys;
+    private boolean mRemoveHomePressVib;
 
     private ListPreference mHomeLongPressAction;
     private ListPreference mHomeDoubleTapAction;
@@ -134,6 +135,9 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
         mDeviceHardwareKeys = res.getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys);
 
+        mRemoveHomePressVib = res.getBoolean(
+                com.android.internal.R.bool.config_removeHomePressVib);
+
         /* Navigation Bar */
         mNavigationBar = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR);
         if (mNavigationBar != null) {
@@ -169,7 +173,7 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
         /* Disable home key vibration */
         mHomePressVibration = (SwitchPreference) findPreference(KEY_HOME_VIBRATION);
         if (mHomePressVibration != null) {
-            if (mDeviceHardwareKeys > 0) {
+            if (mDeviceHardwareKeys > 0 && mRemoveHomePressVib == true) {
                 mHomePressVibration.setOnPreferenceChangeListener(this);
             } else {
                 prefScreen.removePreference(mHomePressVibration);
