@@ -29,6 +29,7 @@ import com.discovery.settings.fragments.BatterySettings;
 import com.discovery.settings.fragments.ButtonsSettings;
 import com.discovery.settings.fragments.ClockSettings;
 import com.discovery.settings.fragments.LockscreenSettings;
+import com.discovery.settings.fragments.PowerMenuSettings;
 import com.discovery.settings.fragments.QsSettings;
 import com.discovery.settings.fragments.StatusBarSettings;
 import com.discovery.settings.notificationlight.BatteryLightSettings;
@@ -90,13 +91,14 @@ public class DiscoverySettings extends SettingsPreferenceFragment {
             super(fm);
             frags[0] = new DiscoverySettingsTest();
             frags[1] = new ButtonsSettings();
-            frags[2] = new ClockSettings();
-            frags[3] = new StatusBarSettings();
-            frags[4] = new LockscreenSettings();
-            frags[5] = new QsSettings();
-            frags[6] = new BatterySettings();
-            frags[7] = new BatteryLightSettings();
-            frags[8] = new NotificationLightSettings();
+            frags[2] = new PowerMenuSettings();
+            frags[3] = new ClockSettings();
+            frags[4] = new StatusBarSettings();
+            frags[5] = new LockscreenSettings();
+            frags[6] = new QsSettings();
+            frags[7] = new BatterySettings();
+            frags[8] = new BatteryLightSettings();
+            frags[9] = new NotificationLightSettings();
         }
 
         @Override
@@ -121,6 +123,7 @@ public class DiscoverySettings extends SettingsPreferenceFragment {
         titleString = new String[] {
             getString(R.string.discovery_misc_settings),
             getString(R.string.discovery_button_settings),
+            getString(R.string.powermenu_settings_title),
             getString(R.string.discovery_clock_settings),
             getString(R.string.discovery_statusbar_settings),
             getString(R.string.discovery_lockscreen_settings),

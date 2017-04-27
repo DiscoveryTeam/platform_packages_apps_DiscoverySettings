@@ -62,7 +62,7 @@
                 android:title="@string/buttons_pref_title"
                 android:fragment="com.discovery.settings.fragments.ButtonsSettings" /> -->
 
-        <SwitchPreference
+       <SwitchPreference
             android:key="volume_rocker_wake"
             android:summary="@string/volume_rocker_wake_summary"
             android:title="@string/volume_rocker_wake_title"
