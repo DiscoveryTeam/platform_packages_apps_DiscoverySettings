@@ -271,4 +271,8 @@
     <string name="dbl_tap_vib_title">Vibrazione doppia pressione tasto accensione</string>
     <string name="dbl_tap_vib_summary">Quando abilitato, vibra alla doppia pressione del tasto di accensione</string>
 
+    <!-- Quick unlock -->
+    <string name="unlock_quick_unlock_control_title">Sblocco rapido</string>
+    <string name="unlock_quick_unlock_control_summary">Sblocco rapido quando si inserisce il PIN corretto\nNota: funziona solo con il PIN a 4 cifre!</string>
+
 </resources>

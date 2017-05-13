@@ -44,15 +44,17 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
 
     private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
     private static final String DOUBLE_TAP_SLEEP_LOCK_SCREEN = "double_tap_sleep_lock_screen";
+    private static final String KEY_LOCKSCREEN_QUICK_UNLOCK_CONTROL = "quick_unlock_control";
 
     private SwitchPreference mFpKeystore;
     private SwitchPreference mDt2sLockscreen;
     private FingerprintManager mFingerprintManager;
+    private SwitchPreference mQuickUnlockScreen;
 
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.DISCOVERY;
-		}
+	}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,18 +66,24 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
 
 
         mFpKeystore = (SwitchPreference) findPreference(FP_UNLOCK_KEYSTORE);
+        mFpKeystore.setChecked((Settings.System.getInt(getContentResolver(),
+            Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
+        mFpKeystore.setOnPreferenceChangeListener(this);
 
-            mFpKeystore.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
-            mFpKeystore.setOnPreferenceChangeListener(this);
         mDt2sLockscreen = (SwitchPreference) findPreference(DOUBLE_TAP_SLEEP_LOCK_SCREEN);
         mDt2sLockscreen.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN, 0) == 1));
         mDt2sLockscreen.setOnPreferenceChangeListener(this);
+
+        // Quick Unlock Screen Control
+        mQuickUnlockScreen = (SwitchPreference) findPreference(KEY_LOCKSCREEN_QUICK_UNLOCK_CONTROL);
+        mQuickUnlockScreen.setChecked((Settings.Secure.getInt(getContentResolver(),
+                Settings.Secure.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1));
+        mQuickUnlockScreen.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue){
-    	if (preference == mFpKeystore) {
+        if (preference == mFpKeystore) {
             boolean value = (Boolean) objValue;
 
             Settings.System.putInt(getActivity().getContentResolver(),
@@ -89,7 +97,14 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
                 Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN, value ? 1 : 0);
 
             return true;
+        } else if (preference == mQuickUnlockScreen) {
+            boolean value = (Boolean) objValue;
+            
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                Settings.Secure.LOCKSCREEN_QUICK_UNLOCK_CONTROL, value ? 1 : 0);
+
+            return true;
         }
-	return false;
+        return false;
     }
 }

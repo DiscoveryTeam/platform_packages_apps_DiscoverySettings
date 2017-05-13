@@ -29,4 +29,10 @@
 	    android:title="@string/double_tap_sleep_lock_screen_title"
 	    android:summary="@string/double_tap_sleep_lock_screen_summary"
 	    android:persistent="false" />
+
+  <SwitchPreference
+      android:key="quick_unlock_control"
+      android:title="@string/unlock_quick_unlock_control_title"
+      android:summary="@string/unlock_quick_unlock_control_summary"
+      android:persistent="false"/>
 </PreferenceScreen>
