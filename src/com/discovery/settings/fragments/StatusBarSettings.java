@@ -74,6 +74,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         loadResources();
 
         mDoubleTapSleepGesture = (SwitchPreference) findPreference(DOUBLE_TAP_SLEEP_GESTURE);
+        mDoubleTapSleepGesture.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.DOUBLE_TAP_SLEEP_GESTURE, 0) ==1);
         mDoubleTapSleepGesture.setOnPreferenceChangeListener(this);
 
         mNetTrafficState = (ListPreference) prefSet.findPreference(NETWORK_TRAFFIC_STATE);
