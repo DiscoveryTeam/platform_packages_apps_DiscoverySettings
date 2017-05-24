@@ -275,4 +275,9 @@
     <string name="unlock_quick_unlock_control_title">Sblocco rapido</string>
     <string name="unlock_quick_unlock_control_summary">Sblocco rapido quando si inserisce il PIN corretto\nNota: funziona solo con il PIN a 4 cifre!</string>
 
+    <!-- Buttons backlight timeout -->
+    <string name="backlight_timeout_title">Tempo retroilluminazione tasti</string>
+    <string name="backlight_timeout_on">Sempre attivo</string>
+    <string name="backlight_timeout_default">5 sec (predefinito)</string>
+
 </resources>
