@@ -77,6 +77,8 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
 
     private Handler mHandler;
 
+    private boolean mDeviceHasFingerprint;
+
     private SwitchPreference mVolRockerWake;
     private SwitchPreference mVolRockerMusic;
     private SwitchPreference mNavigationBar;
@@ -99,6 +101,11 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.discovery_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
 
+        final Resources res = getActivity().getResources();
+        
+        mDeviceHasFingerprint = res.getBoolean(
+                com.android.internal.R.bool.config_hasFingerprint);
+
         //final PreferenceCategory leds = (PreferenceCategory) findPreference(CATEGORY_BATTERY_LED);
 
         mVolRockerWake = (SwitchPreference) findPreference(VOLUME_ROCKER_WAKE);
@@ -117,7 +124,13 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
         mKeyguardTorch.setOnPreferenceChangeListener(this);
 
         mFingerprintVib = (SwitchPreference) findPreference(FINGERPRINT_SUCCESS_VIB);
-        mFingerprintVib.setOnPreferenceChangeListener(this);
+        if (mFingerprintVib != null) {
+            if (mDeviceHasFingerprint) {
+                mFingerprintVib.setOnPreferenceChangeListener(this);
+            } else {
+                prefScreen.removePreference(mFingerprintVib);
+            }
+        }
 
         mScreenshotSound = (SwitchPreference) findPreference(SCREENSHOT_SOUND);
         mScreenshotSound.setOnPreferenceChangeListener(this);

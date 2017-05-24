@@ -46,6 +46,8 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
     private static final String DOUBLE_TAP_SLEEP_LOCK_SCREEN = "double_tap_sleep_lock_screen";
     private static final String KEY_LOCKSCREEN_QUICK_UNLOCK_CONTROL = "quick_unlock_control";
 
+    private boolean mDeviceHasFingerprint;
+
     private SwitchPreference mFpKeystore;
     private SwitchPreference mDt2sLockscreen;
     private FingerprintManager mFingerprintManager;
@@ -64,11 +66,21 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.ls_settings);
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
+        final Resources res = getActivity().getResources();
+        
+        mDeviceHasFingerprint = res.getBoolean(
+                com.android.internal.R.bool.config_hasFingerprint);
 
         mFpKeystore = (SwitchPreference) findPreference(FP_UNLOCK_KEYSTORE);
-        mFpKeystore.setChecked((Settings.System.getInt(getContentResolver(),
-            Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
-        mFpKeystore.setOnPreferenceChangeListener(this);
+        if (mFpKeystore != null) {
+            if (mDeviceHasFingerprint) {
+                mFpKeystore.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
+                mFpKeystore.setOnPreferenceChangeListener(this);
+            } else {
+                prefScreen.removePreference(mFpKeystore);
+            }
+        }
 
         mDt2sLockscreen = (SwitchPreference) findPreference(DOUBLE_TAP_SLEEP_LOCK_SCREEN);
         mDt2sLockscreen.setChecked((Settings.System.getInt(getContentResolver(),
