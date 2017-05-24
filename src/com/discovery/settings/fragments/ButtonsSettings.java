@@ -58,8 +58,9 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
     private static final int KEY_MASK_APP_SWITCH = 0x10;
     private static final int KEY_MASK_CAMERA = 0x20;
 
-    private static final String KEY_NAVIGATION_BAR         = "navigation_bar";
-    private static final String KEY_BUTTON_BRIGHTNESS      = "button_brightness";
+    private static final String KEY_NAVIGATION_BAR          = "navigation_bar";
+    private static final String KEY_BUTTON_BRIGHTNESS       = "button_brightness";
+    private static final String KEY_BACKLIGHT_TIMEOUT       = "backlight_timeout";
 
     private static final String KEY_HOME_LONG_PRESS        = "hardware_keys_home_long_press";
     private static final String KEY_HOME_DOUBLE_TAP        = "hardware_keys_home_double_tap";
@@ -119,6 +120,7 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
 
     private SwitchPreference mNavigationBar;
     private SwitchPreference mButtonBrightness;
+    private ListPreference mBacklightTimeout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -158,6 +160,23 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
             } else {
                 prefScreen.removePreference(mButtonBrightness);
             }
+        }
+
+        mBacklightTimeout =
+                (ListPreference) findPreference(KEY_BACKLIGHT_TIMEOUT);
+        // Backlight
+        if (mBacklightTimeout != null) {
+            int defaultButtonBrightness = res.getInteger(
+                    com.android.internal.R.integer.config_buttonBrightnessSettingDefault);
+            if (defaultButtonBrightness > 0) {
+                mBacklightTimeout.setOnPreferenceChangeListener(this);
+            } else {
+                prefScreen.removePreference(mBacklightTimeout);
+            }
+            int BacklightTimeout = Settings.System.getInt(getContentResolver(),
+                    Settings.System.BUTTON_BACKLIGHT_TIMEOUT, 5000);
+            mBacklightTimeout.setValue(Integer.toString(BacklightTimeout));
+            mBacklightTimeout.setSummary(mBacklightTimeout.getEntry());
         }
 
         /* Home key wake device */
@@ -405,6 +424,8 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
             return Settings.System.NAVIGATION_BAR_ENABLED;
         } else if (preference == mButtonBrightness) {
             return Settings.System.BUTTON_BRIGHTNESS_ENABLED;
+        } else if (preference == mBacklightTimeout) {
+            return Settings.System.BUTTON_BACKLIGHT_TIMEOUT;
         } else if (preference == mHomeWakeKey) {
             return Settings.System.HOME_WAKE_SCREEN;
         } else if (preference == mHomePressVibration) {
@@ -565,6 +586,16 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final boolean handled = handleOnPreferenceChange(preference, newValue);
         if (handled) {
+            if (preference == mBacklightTimeout) {
+                String BacklightTimeout = (String) newValue;
+                int BacklightTimeoutValue = Integer.parseInt(BacklightTimeout);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                        Settings.System.BUTTON_BACKLIGHT_TIMEOUT, BacklightTimeoutValue);
+                int BacklightTimeoutIndex = mBacklightTimeout
+                        .findIndexOfValue(BacklightTimeout);
+                mBacklightTimeout
+                        .setSummary(mBacklightTimeout.getEntries()[BacklightTimeoutIndex]);
+            }
             reload();
         }
         return handled;
