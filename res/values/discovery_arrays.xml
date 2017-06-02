@@ -155,6 +155,7 @@
     <string name="hardware_keys_action_last_app">Launch last app</string>
     <string name="hardware_keys_action_ohm_right">OneHandMode Right</string>
     <string name="hardware_keys_action_ohm_left">OneHandMode Left</string>
+    <string name="hardware_keys_action_kill_app">Kill app</string>
     <string name="hardware_keys_action_split_screen">Split Screen</string>
 
     <!-- Buttons -->
@@ -171,6 +172,7 @@
         <item>@string/hardware_keys_action_last_app</item>
         <item>@string/hardware_keys_action_ohm_right</item>
         <item>@string/hardware_keys_action_ohm_left</item>
+        <item>@string/hardware_keys_action_kill_app</item>
         <item>@string/hardware_keys_action_split_screen</item>
     </string-array>
  
@@ -188,6 +190,7 @@
         <item>10</item>
         <item>11</item>
         <item>12</item>
+        <item>13</item>
     </string-array>
 
     <string-array name="status_bar_battery_style_entries" translatable="false">
