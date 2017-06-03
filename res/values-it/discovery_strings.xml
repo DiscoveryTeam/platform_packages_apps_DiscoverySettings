@@ -281,4 +281,7 @@
     <string name="backlight_timeout_on">Sempre attivo</string>
     <string name="backlight_timeout_default">5 sec (predefinito)</string>
 
+    <!-- Lockscreen cover art -->
+    <string name="media_art_summary">Abilita media cover art nella lockscreen</string>
+
 </resources>
