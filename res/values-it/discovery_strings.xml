@@ -284,4 +284,8 @@
     <!-- Lockscreen cover art -->
     <string name="media_art_summary">Abilita media cover art nella lockscreen</string>
 
+    <!-- Disable power menu in lockscreen -->
+    <string name="power_menu_disabled_title">Menu spegnimento</string>
+    <string name="power_menu_disabled_summary">Nascondi il menu di spegnimento nella lockscreen</string>
+
 </resources>

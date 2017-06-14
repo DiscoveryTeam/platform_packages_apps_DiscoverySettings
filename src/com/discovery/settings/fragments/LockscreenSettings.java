@@ -45,6 +45,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
     private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
     private static final String DOUBLE_TAP_SLEEP_LOCK_SCREEN = "double_tap_sleep_lock_screen";
     private static final String KEY_LOCKSCREEN_QUICK_UNLOCK_CONTROL = "quick_unlock_control";
+    private static final String KEY_LOCKSCREEN_POWER_MENU_DISABLED = "power_menu_disabled";
 
     private boolean mDeviceHasFingerprint;
 
@@ -52,6 +53,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mDt2sLockscreen;
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mQuickUnlockScreen;
+    private SwitchPreference mLsRemovePowerMenu;
 
     @Override
     protected int getMetricsCategory() {
@@ -92,6 +94,12 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
         mQuickUnlockScreen.setChecked((Settings.Secure.getInt(getContentResolver(),
                 Settings.Secure.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1));
         mQuickUnlockScreen.setOnPreferenceChangeListener(this);
+
+        // Remove power menu from lockscreen
+        mLsRemovePowerMenu = (SwitchPreference) findPreference(KEY_LOCKSCREEN_POWER_MENU_DISABLED);
+        mLsRemovePowerMenu.setChecked((Settings.Secure.getInt(getContentResolver(),
+                Settings.Secure.LOCKSCREEN_POWER_MENU_DISABLED, 0) == 1));
+        mLsRemovePowerMenu.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue){
@@ -114,6 +122,13 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
             
             Settings.Secure.putInt(getActivity().getContentResolver(),
                 Settings.Secure.LOCKSCREEN_QUICK_UNLOCK_CONTROL, value ? 1 : 0);
+
+            return true;
+        } else if (preference == mLsRemovePowerMenu) {
+            boolean value = (Boolean) objValue;
+            
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                Settings.Secure.LOCKSCREEN_POWER_MENU_DISABLED, value ? 1 : 0);
 
             return true;
         }
