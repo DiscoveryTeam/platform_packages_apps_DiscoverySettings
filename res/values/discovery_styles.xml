@@ -15,12 +15,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <style name="TextAppearance.PagerTabsSystemSettings" parent="@android:style/TextAppearance.DeviceDefault.Small">
-        <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
     <style name="Theme.DateTimeSettingsSetupWizard" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar" />
 
     <style name="Theme.AppPicker" parent="@android:style/Theme.DeviceDefault.Light.Dialog" />
@@ -30,4 +24,9 @@
     <style name="Theme.SettingsAlertDialog" parent="@*android:style/Theme.DeviceDefault.Light.Dialog.Alert" />
 
     <style name="Theme.VoiceActivity" parent="@*android:style/Theme.DeviceDefault.Light.Voice" />
+
+    <style name="Theme.DiscoverySettings" parent="@*android:style/Theme.Material.Light.DarkActionBar" >
+         <item name="@*android:listDivider">@null</item>
+    </style>
+
 </resources>

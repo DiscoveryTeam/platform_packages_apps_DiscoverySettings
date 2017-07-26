@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+        android:title="@string/discovery_settings">
+
+    <Preference
+      android:key="general_frag"
+      android:title="@string/discovery_general_settings"
+      android:icon="@drawable/ic_discovery_general"
+      android:fragment="com.discovery.settings.fragments.GeneralSettings" />
+
+    <Preference
+      android:key="button_frag"
+      android:title="@string/discovery_button_settings"
+      android:icon="@drawable/ic_discovery_buttons"
+      android:fragment="com.discovery.settings.fragments.ButtonsSettings" />
+
+    <Preference
+      android:key="power_menu_frag"
+      android:title="@string/powermenu_settings_title"
+      android:icon="@drawable/ic_discovery_power"
+      android:fragment="com.discovery.settings.fragments.PowerMenuSettings" />
+
+    <Preference
+      android:key="statusbar_frag"
+      android:title="@string/discovery_statusbar_settings"
+      android:icon="@drawable/ic_discovery_statusbar"
+      android:fragment="com.discovery.settings.fragments.StatusBarSettings" />
+
+    <Preference
+      android:key="lock_frag"
+      android:title="@string/discovery_lockscreen_settings"
+      android:icon="@drawable/ic_discovery_lock"
+      android:fragment="com.discovery.settings.fragments.LockscreenSettings" />
+
+    <Preference
+      android:key="notif_led_frag"
+      android:title="@string/discovery_notification_light_settings"
+      android:icon="@drawable/ic_discovery_leds"
+      android:fragment="com.discovery.settings.notificationlight.NotificationLightSettings" />
+
+</PreferenceScreen>

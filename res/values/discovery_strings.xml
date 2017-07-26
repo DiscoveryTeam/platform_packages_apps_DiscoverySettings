@@ -27,6 +27,7 @@
     <string name="header_category_discovery">Discovery</string>
     <string name="discovery_settings">Discovery Settings</string>
     <string name="discovery_settings_summary">Customize your Discovery</string>
+    <string name="discovery_general_settings">General</string>
     <string name="discovery_led_settings">LED</string>
     <string name="discovery_qs_settings">QS</string>
     <string name="discovery_clock_settings">Clock</string>
@@ -326,5 +327,17 @@
     <!-- Disable power menu in lockscreen -->
     <string name="power_menu_disabled_title">Power menu</string>
     <string name="power_menu_disabled_summary">Disable power menu on the lockscreen</string>
+
+    <!-- Statusbar cloch category title -->
+    <string name="clock_prefcategor_title">Statusbar clock customizations</string>
+
+    <!-- QS category title -->
+    <string name="qs_prefcategor_title">Quick Settings customizations</string>
+
+    <!-- Statusbar battery category title -->
+    <string name="battery_prefcategor_title">Statusbar battery icon</string>
+
+    <!-- Gestures category -->
+    <string name="gesture_prefcategor_title">Gestures</string>
 
 </resources>
