@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.discovery.settings;
+package com.discovery.settings.fragments;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
@@ -58,7 +58,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
+public class GeneralSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
     private static final String TAG = "DiscoverySettings";
 
@@ -98,11 +98,11 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.discovery_settings);
+        addPreferencesFromResource(R.xml.general_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
 
         final Resources res = getActivity().getResources();
-        
+
         mDeviceHasFingerprint = res.getBoolean(
                 com.android.internal.R.bool.config_hasFingerprint);
 
@@ -330,7 +330,7 @@ public class DiscoverySettingsTest extends SettingsPreferenceFragment implements
                             new ArrayList<SearchIndexableResource>();
 
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.discovery_settings;
+                    sir.xmlResId = R.xml.general_settings;
                     result.add(sir);
 
                     return result;
