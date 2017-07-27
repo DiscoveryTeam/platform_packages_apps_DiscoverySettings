@@ -24,4 +24,9 @@
     <style name="Theme.SettingsAlertDialog" parent="@*android:style/Theme.DeviceDefault.Light.Dialog.Alert" />
 
     <style name="Theme.VoiceActivity" parent="@*android:style/Theme.DeviceDefault.Light.Voice" />
+
+    <style name="Theme.DiscoverySettings" parent="@*android:style/Theme.Material.Light.DarkActionBar" >
+         <item name="android:listDivider">@null</item>
+    </style>
+
 </resources>
