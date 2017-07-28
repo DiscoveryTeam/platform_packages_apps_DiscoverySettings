@@ -61,4 +61,10 @@
         android:dependency="notification_light_pulse_custom_enable" >
     </PreferenceCategory>
 
+
+    <Preference
+      android:key="battery_led_frag"
+      android:title="@string/discovery_battery_light_settings"
+      android:fragment="com.discovery.settings.fragments.BatteryLightSettings" />
+
 </PreferenceScreen>

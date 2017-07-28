@@ -1,61 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:title="@string/discovery_statusbar_settings" 
+        android:title="@string/discovery_statusbar_settings"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-        <SwitchPreference
-            android:key="double_tap_sleep_gesture"
-            android:title="@string/double_tap_to_sleep_title"
-            android:summary="@string/double_tap_to_sleep_summary"
-            android:defaultValue="false" />
+        <!-- Statusbar battery category -->
+        <PreferenceCategory
+          android:key="battery_prefcategor"
+          android:title="@string/battery_prefcategor_title" >
 
-        <!-- Network traffic -->
-    	<PreferenceCategory
-        android:key="discovery_statusbar"
-        android:title="@string/nettraffic_settings_title" >
-        	<ListPreference
-		        android:key="network_traffic_state"
-		        android:title="@string/show_network_traffic_state"
-		        android:entries="@array/show_network_traffic_state_entries"
-		        android:entryValues="@array/show_network_traffic_state_values"
-		        android:persistent="false" />
+             <Preference
+               android:key="battery_frag"
+               android:title="@string/discovery_battery_settings"
+               android:fragment="com.discovery.settings.fragments.BatterySettings" />
+        </PreferenceCategory>
 
-		    <ListPreference
-		        android:key="network_traffic_unit"
-		        android:title="@string/show_network_traffic_unit"
-		        android:entries="@array/show_network_traffic_unit_entries"
-		        android:entryValues="@array/show_network_traffic_unit_values"
-		        android:persistent="false" />
+        <!-- Statusbar clock category -->
+        <PreferenceCategory
+          android:key="clock_prefcategor"
+          android:title="@string/clock_prefcategor_title" >
 
-		    <ListPreference
-		        android:key="network_traffic_period"
-		        android:title="@string/show_network_traffic_frequency"
-		        android:entries="@array/show_network_traffic_frequency_entries"
-		        android:entryValues="@array/show_network_traffic_frequency_values"
-		        android:persistent="false" />
+           <Preference
+             android:key="clock_frag"
+             android:title="@string/discovery_clock_settings"
+             android:fragment="com.discovery.settings.fragments.ClockSettings" />
+       </PreferenceCategory>
 
-		    <SwitchPreference
-		        android:key="network_traffic_hidearrow"
-		        android:title="@string/network_traffic_hidearrow"
-		        android:summary="@string/network_traffic_hidearrow_summary"
-		        android:defaultValue="false" />
+    <!-- Quick settings category -->
+    <PreferenceCategory
+      android:key="qs_prefcategor"
+      android:title="@string/qs_prefcategor_title" >
 
-		    <SwitchPreference
-		        android:key="network_traffic_autohide"
-		        android:title="@string/network_traffic_autohide"
-		        android:summary="@string/network_traffic_autohide_summary"
-		        android:defaultValue="false" />
+      <Preference
+        android:key="qs_frag"
+        android:title="@string/discovery_qs_settings"
+        android:fragment="com.discovery.settings.fragments.QsSettings" />
 
-		    <com.discovery.settings.preferences.CustomSeekBarPreference
-		        android:key="network_traffic_autohide_threshold"
-		        android:title="@string/network_traffic_autohide_threshold"
-		        android:max="100"
-		        settings:min="0"
-		        settings:units="kB/s"
-		        android:dependency="network_traffic_autohide"
-		        android:persistent="false" />
-	    </PreferenceCategory>
+    </PreferenceCategory>
+
+  <!-- Network traffic -->
+  <PreferenceCategory
+    android:key="discovery_statusbar"
+    android:title="@string/nettraffic_settings_title" >
+      <ListPreference
+        android:key="network_traffic_state"
+        android:title="@string/show_network_traffic_state"
+        android:entries="@array/show_network_traffic_state_entries"
+        android:entryValues="@array/show_network_traffic_state_values"
+        android:persistent="false" />
+
+    <ListPreference
+        android:key="network_traffic_unit"
+        android:title="@string/show_network_traffic_unit"
+        android:entries="@array/show_network_traffic_unit_entries"
+        android:entryValues="@array/show_network_traffic_unit_values"
+        android:persistent="false" />
+
+    <ListPreference
+        android:key="network_traffic_period"
+        android:title="@string/show_network_traffic_frequency"
+        android:entries="@array/show_network_traffic_frequency_entries"
+        android:entryValues="@array/show_network_traffic_frequency_values"
+        android:persistent="false" />
+
+    <SwitchPreference
+        android:key="network_traffic_hidearrow"
+        android:title="@string/network_traffic_hidearrow"
+        android:summary="@string/network_traffic_hidearrow_summary"
+        android:defaultValue="false" />
+
+    <SwitchPreference
+        android:key="network_traffic_autohide"
+        android:title="@string/network_traffic_autohide"
+        android:summary="@string/network_traffic_autohide_summary"
+        android:defaultValue="false" />
+
+    <com.discovery.settings.preferences.CustomSeekBarPreference
+        android:key="network_traffic_autohide_threshold"
+        android:title="@string/network_traffic_autohide_threshold"
+        android:max="100"
+        settings:min="0"
+        settings:units="kB/s"
+        android:dependency="network_traffic_autohide"
+        android:persistent="false" />
+  </PreferenceCategory>
+
+ <!-- Gesture category -->
+ <PreferenceCategory
+     android:key="gesture_prefcategor"
+      android:title="@string/gesture_prefcategor_title" >
+
+      <SwitchPreference
+          android:key="double_tap_sleep_gesture"
+          android:title="@string/double_tap_to_sleep_title"
+         android:summary="@string/double_tap_to_sleep_summary"
+          android:defaultValue="false" />
+    </PreferenceCategory>
 
 </PreferenceScreen>
-

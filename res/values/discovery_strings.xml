@@ -328,4 +328,16 @@
     <string name="power_menu_disabled_title">Power menu</string>
     <string name="power_menu_disabled_summary">Disable power menu on the lockscreen</string>
 
+    <!-- Statusbar cloch category title -->
+    <string name="clock_prefcategor_title">Statusbar clock customizations</string>
+
+    <!-- QS category title -->
+    <string name="qs_prefcategor_title">Quick Settings customizations</string>
+
+    <!-- Statusbar battery category title -->
+    <string name="battery_prefcategor_title=">Statusbar battery icon</string>
+
+    <!-- Gestures category -->
+    <string name="gesture_prefcategor_title">Gestures</string>
+
 </resources>

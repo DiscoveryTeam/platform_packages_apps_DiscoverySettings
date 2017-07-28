@@ -23,12 +23,6 @@
       android:fragment="com.discovery.settings.fragments.PowerMenuSettings" />
 
     <Preference
-      android:key="clock_frag"
-      android:title="@string/discovery_clock_settings"
-      android:icon="@drawable/ic_discovery_clock"
-      android:fragment="com.discovery.settings.fragments.ClockSettings" />
-
-    <Preference
       android:key="statusbar_frag"
       android:title="@string/discovery_statusbar_settings"
       android:icon="@drawable/ic_discovery_lock"
@@ -41,24 +35,9 @@
       android:fragment="com.discovery.settings.fragments.LockscreenSettings" />
 
     <Preference
-      android:key="qs_frag"
-      android:title="@string/discovery_qs_settings"
-      android:fragment="com.discovery.settings.fragments.QsSettings" />
-
-    <Preference
-      android:key="battery_frag"
-      android:title="@string/discovery_battery_settings"
-      android:fragment="com.discovery.settings.fragments.BatterySettings" />
-
-    <Preference
-      android:key="battery_led_frag"
-      android:title="@string/discovery_battery_light_settings"
-      android:icon="@drawable/ic_discovery_leds"
-      android:fragment="com.discovery.settings.fragments.BatteryLightSettings" />
-
-    <Preference
       android:key="notif_led_frag"
       android:title="@string/discovery_notification_light_settings"
+      android:icon="@drawable/ic_discovery_leds"
       android:fragment="com.discovery.settings.notificationlight.NotificationLightSettings" />
 
 </PreferenceScreen>
