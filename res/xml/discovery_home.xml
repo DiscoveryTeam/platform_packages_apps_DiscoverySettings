@@ -25,13 +25,13 @@
     <Preference
       android:key="statusbar_frag"
       android:title="@string/discovery_statusbar_settings"
-      android:icon="@drawable/ic_discovery_lock"
+      android:icon="@drawable/ic_discovery_statusbar"
       android:fragment="com.discovery.settings.fragments.StatusBarSettings" />
 
     <Preference
       android:key="lock_frag"
       android:title="@string/discovery_lockscreen_settings"
-      android:icon="@drwable/ic_discovery_lock"
+      android:icon="@drawable/ic_discovery_lock"
       android:fragment="com.discovery.settings.fragments.LockscreenSettings" />
 
     <Preference

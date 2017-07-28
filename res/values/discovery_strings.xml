@@ -335,7 +335,7 @@
     <string name="qs_prefcategor_title">Quick Settings customizations</string>
 
     <!-- Statusbar battery category title -->
-    <string name="battery_prefcategor_title=">Statusbar battery icon</string>
+    <string name="battery_prefcategor_title">Statusbar battery icon</string>
 
     <!-- Gestures category -->
     <string name="gesture_prefcategor_title">Gestures</string>

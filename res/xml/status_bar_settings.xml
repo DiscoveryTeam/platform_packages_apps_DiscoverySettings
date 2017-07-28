@@ -13,7 +13,7 @@
                android:key="battery_frag"
                android:title="@string/discovery_battery_settings"
                android:fragment="com.discovery.settings.fragments.BatterySettings" />
-        </PreferenceCategory>
+       </PreferenceCategory>
 
         <!-- Statusbar clock category -->
         <PreferenceCategory
