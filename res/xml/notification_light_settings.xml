@@ -65,6 +65,6 @@
     <Preference
       android:key="battery_led_frag"
       android:title="@string/discovery_battery_light_settings"
-      android:fragment="com.discovery.settings.fragments.BatteryLightSettings" />
+      android:fragment="com.discovery.settings.notificationlight.BatteryLightSettings" />
 
 </PreferenceScreen>
