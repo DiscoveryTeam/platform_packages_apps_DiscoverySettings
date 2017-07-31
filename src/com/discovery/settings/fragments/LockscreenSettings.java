@@ -26,6 +26,7 @@ import android.support.v7.preference.ListPreference;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceScreen;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
@@ -33,6 +34,7 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 import android.provider.Settings;
 
 import com.android.settings.R;
+import com.android.settings.SeekBarPreference;
 import com.android.settings.SettingsPreferenceFragment;
 import android.hardware.fingerprint.FingerprintManager;
 import com.android.settings.Utils;
@@ -46,6 +48,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
     private static final String DOUBLE_TAP_SLEEP_LOCK_SCREEN = "double_tap_sleep_lock_screen";
     private static final String KEY_LOCKSCREEN_QUICK_UNLOCK_CONTROL = "quick_unlock_control";
     private static final String KEY_LOCKSCREEN_POWER_MENU_DISABLED = "power_menu_disabled";
+    private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
 
     private boolean mDeviceHasFingerprint;
 
@@ -54,6 +57,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mQuickUnlockScreen;
     private SwitchPreference mLsRemovePowerMenu;
+    private SeekBarPreference mMaxKeyguardNotifConfig;
 
     @Override
     protected int getMetricsCategory() {
@@ -100,6 +104,12 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
         mLsRemovePowerMenu.setChecked((Settings.Secure.getInt(getContentResolver(),
                 Settings.Secure.LOCKSCREEN_POWER_MENU_DISABLED, 0) == 1));
         mLsRemovePowerMenu.setOnPreferenceChangeListener(this);
+
+        mMaxKeyguardNotifConfig = (SeekBarPreference) findPreference(LOCKSCREEN_MAX_NOTIF_CONFIG);
+        int kgconf = Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 5);
+        mMaxKeyguardNotifConfig.setProgress(kgconf);
+        mMaxKeyguardNotifConfig.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue){
@@ -129,6 +139,13 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
             
             Settings.Secure.putInt(getActivity().getContentResolver(),
                 Settings.Secure.LOCKSCREEN_POWER_MENU_DISABLED, value ? 1 : 0);
+
+            return true;
+        } else if (preference == mMaxKeyguardNotifConfig) {
+            int kgconf = (Integer) objValue;
+
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, kgconf);
 
             return true;
         }
