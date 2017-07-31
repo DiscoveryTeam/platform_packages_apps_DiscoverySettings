@@ -21,6 +21,7 @@
     <string name="discovery_settings">Impostazioni Discovery</string>
     <string name="discovery_settings_summary">Personalizza la tua Discovery</string>
     <string name="discovery_led_settings">LED</string>
+    <string name="discovery_general_settings">Generali</string>
     <string name="discovery_clock_settings">Orologio</string>
     <string name="discovery_battery_settings">Icona batteria</string>
     <string name="discovery_battery_light_settings">LED Batteria</string>
@@ -287,5 +288,28 @@
     <!-- Disable power menu in lockscreen -->
     <string name="power_menu_disabled_title">Menu spegnimento</string>
     <string name="power_menu_disabled_summary">Nascondi il menu di spegnimento nella lockscreen</string>
+
+    <!-- Power menu customization -->
+    <string name="power_menu_airplane_title">Modalità aereo</string>
+    <string name="power_menu_users_title">Cambio utente</string>
+    <string name="power_menu_search_title">Ricerca</string>
+    <string name="power_menu_voice_title">Ricerca vocale</string>
+    <string name="power_menu_settings_title">Scorciatoia impostazioni</string>
+    <string name="power_menu_lockdown_title">Blocca dispositivo</string>
+    <string name="power_menu_bug_report_title">Segnalazione bug</string>
+    <string name="power_menu_sound_title">Pannello suoni</string>
+    <string name="power_menu_bug_report_disabled">La segnalazione dei bug è disabilitata nelle opzioni sviluppatore</string>
+
+    <!-- Statusbar cloch category title -->
+    <string name="clock_prefcategor_title">Personalizzazione orologio</string>
+
+    <!-- QS category title -->
+    <string name="qs_prefcategor_title">Personalizzazione quick settings</string>
+
+    <!-- Statusbar battery category title -->
+    <string name="battery_prefcategor_title">Icona batteria</string>
+
+    <!-- Gestures category -->
+    <string name="gesture_prefcategor_title">Gesti</string>
 
 </resources>
