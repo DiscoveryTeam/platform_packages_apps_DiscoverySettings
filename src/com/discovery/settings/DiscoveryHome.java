@@ -39,6 +39,6 @@ public class DiscoveryHome extends SettingsPreferenceFragment {
 
   @Override
   protected int getMetricsCategory() {
-      return MetricsEvent.DISCOVERY;
+      return MetricsEvent.DISCOVERY_SETTINGS;
   }
 }

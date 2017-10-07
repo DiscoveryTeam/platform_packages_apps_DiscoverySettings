@@ -16,6 +16,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <string name="very_stupid">OH UR INSIDE THE FRAGMENT</string>
+
     <!-- Wakeup section under Display settings -->
     <string name="wakeup_section_header">Wake up</string>
 
