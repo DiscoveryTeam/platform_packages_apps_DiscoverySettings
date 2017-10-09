@@ -24,7 +24,7 @@ import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
 
-import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.logging.nano.MetricsProto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +38,7 @@ public class DiscoveryHome extends SettingsPreferenceFragment {
   }
 
   @Override
-  protected int getMetricsCategory() {
-      return MetricsEvent.DISCOVERY;
+  public int getMetricsCategory() {
+      return MetricsProto.MetricsEvent.DISCOVERY;
   }
 }

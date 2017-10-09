@@ -35,7 +35,6 @@
     <string name="discovery_button_settings">Przyciski</string>
     <string name="discovery_misc_settings">Inne ustawienia</string>
     <string name="discovery_lockscreen_settings">Ekran blokady</string>
-    <string name="header_category_discovery">Discovery</string>
     <string name="discovery_additional_settings">Dodatki Discovery</string>
     <string name="substratum_title">Substratum</string>
     <string name="supersu_title">SuperSU</string>
@@ -151,8 +150,6 @@
 
     <!-- Buttons -->
     <string name="buttons_pref_title">Opcje przycisków</string>
-    <string name="enable_navigation_bar_title">Pasek nawigacji</string>
-    <string name="enable_navigation_bar_summary">Włącz pasek nawigacji</string>
     <string name="hardware_brightness_keys_title">Podświetlenie</string>
     <string name="hardware_brightness_keys_summary">Włącz podświetlenie klawiszy nawigacji</string>
     <string name="hardware_keys_home_key_title">Klawisz Home</string>

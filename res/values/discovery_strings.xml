@@ -43,7 +43,6 @@
     <string name="discovery_button_category">Button</string>
     <string name="discovery_misc_settings">Miscellaneous</string>
     <string name="discovery_lockscreen_settings">Lockscreen</string>
-    <string name="header_category_discovery">Discovery</string>
     <string name="discovery_additional_settings">Discovery Additions</string>
     <string name="substratum_title">Substratum</string>
     <string name="powermenu_settings_title">PowerMenu</string>
@@ -164,9 +163,6 @@
 
     <!-- Buttons -->
     <string name="buttons_pref_title">Buttons Settings</string>
-    <string name="enable_navigation_bar_title">Enable software keys</string>
-    <string name="enable_navigation_bar_summary">Enable on-screen navigation keys</string>
-    <string name="hardware_brightness_keys_title">Backlight</string>
     <string name="hardware_brightness_keys_summary">Enable navigation keys backlight</string>
     <string name="hardware_keys_home_key_title">Home button</string>
     <string name="hardware_keys_back_key_title">Back button</string>
@@ -213,7 +209,7 @@
     <string name="status_bar_battery_style_big_circle">Big circle</string>
     <string name="status_bar_battery_style_full_circle">Full circle</string>
     <string name="status_bar_battery_style_text">Text</string>
-   <string name="status_bar_battery_style_hidden">Hidden</string>
+    <string name="status_bar_battery_style_hidden">Hidden</string>
     <string name="status_bar_battery_style_icon_portrait">Icon portrait</string>
     <string name="status_bar_battery_style_icon_landscape">Icon landscape</string>
 

@@ -41,7 +41,7 @@
       android:fragment="com.discovery.settings.notificationlight.NotificationLightSettings" /> -->
 
     <Preference
-      android:keY="stupid_preference"
+      android:key="stupid_preference"
       android:title="@string/very_stupid" />
 
 </PreferenceScreen>
