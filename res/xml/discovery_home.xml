@@ -34,14 +34,10 @@
       android:icon="@drawable/ic_discovery_lock"
       android:fragment="com.discovery.settings.fragments.LockscreenSettings" />
 
-    <!--Preference
+    <Preference
       android:key="notif_led_frag"
       android:title="@string/discovery_notification_light_settings"
       android:icon="@drawable/ic_discovery_leds"
-      android:fragment="com.discovery.settings.notificationlight.NotificationLightSettings" />
-
-    <Preference
-      android:key="stupid_preference"
-      android:title="@string/very_stupid" /-->
+      android:fragment="com.discovery.settings.fragments.LedSettings" />
 
 </PreferenceScreen>

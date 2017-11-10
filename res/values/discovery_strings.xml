@@ -125,12 +125,19 @@
     <string name="choose_app">Choose app</string>
 
     <!-- Notification/Battery lights -->
+    <string name="ok">Okay</string>
+    <string name="profiles_add">Add...</string>
+    <string name="dialog_choose_app">Select app</string>
     <string name="edit_light_settings">Edit light settings</string>
     <string name="pulse_speed_title">Pulse length and speed</string>
     <string name="default_time">Normal</string>
     <string name="custom_time">Custom</string>
     <string name="dialog_delete_title">Delete</string>
     <string name="dialog_delete_message">Remove selected item?</string>
+    <string name="leds_category_title">LED Options</string>
+    <string name="battery_light_settings">Battery light</string>
+    <string name="led_notification_title">Light settings</string>
+    <string name="led_notification_text">LED light enabled by settings</string>
     <string name="pulse_length_always_on">Always on</string>
     <string name="pulse_length_very_short">Very short</string>
     <string name="pulse_length_short">Short</string>
@@ -142,6 +149,13 @@
     <string name="pulse_speed_normal">Normal</string>
     <string name="pulse_speed_slow">Slow</string>
     <string name="pulse_speed_very_slow">Very slow</string>
+    <string name="batterylight_title">Battery LED settings</string>
+    <string name="battery_light_enable">Enable</string>
+    <string name="battery_light_only_full_charge_title">Only light up when fully charged</string>
+    <string name="edit_battery_settings">Edit battery settings</string>
+    <string name="led_color_green">Green</string>
+    <string name="led_color_red">Red</string>
+    <string name="led_color_blue">Blue</string>
     <string name="battery_led_category">Lights</string>
     <string name="battery_light_title">Battery light</string>
     <string name="battery_low_pulse_title">Pulse if battery low</string>
@@ -150,6 +164,14 @@
     <string name="battery_light_medium_color_title">Charging</string>
     <string name="battery_light_full_color_title">Charged (90%)</string>
     <string name="battery_light_really_full_color_title">Charged (100%)</string>
+    <string name="notification_light_title_summary">Enable pulsing notification LED</string>
+    <string name="notification_light_use_custom_summary">Enable to set per app notification colors</string>
+    <string name="notification_light_phonelist_title">Phone</string>
+    <string name="notification_light_missed_call_title">Missed call</string>
+    <string name="notification_light_voicemail_title">Voicemail</string>
+    <string name="notification_light_brightness" translatable="false">@string/brightness</string>
+    <string name="notification_light_zen_mode">Lights in Do Not Disturb mode</string>
+    <string name="notification_light_use_multiple_leds">Multiple LEDs</string>
     <string name="notif_led_category">Lights</string>
     <string name="notification_light_title">Notification light</string>
     <string name="notification_light_general_title">General</string>
