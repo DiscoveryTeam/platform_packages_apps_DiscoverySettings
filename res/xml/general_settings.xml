@@ -16,4 +16,16 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/discovery_general_settings">
 
+    <!-- Gesture category -->
+    <PreferenceCategory
+    	android:key="gesture_prefcategor"
+    	android:title="@string/gesture_prefcategor_title" >
+
+        <com.discovery.settings.preference.SystemSettingSwitchPreference
+            android:key="three_finger_gesture"
+            android:title="@string/three_finger_gesture"
+            android:summary="@string/three_finger_gesture_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
