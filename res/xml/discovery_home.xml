@@ -4,13 +4,13 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/discovery_settings">
 
-<!--    <Preference
+    <Preference
       android:key="general_frag"
       android:title="@string/discovery_general_settings"
       android:icon="@drawable/ic_discovery_general"
       android:fragment="com.discovery.settings.fragments.GeneralSettings" />
 
-    <Preference
+    <!--Preference
       android:key="button_frag"
       android:title="@string/discovery_button_settings"
       android:icon="@drawable/ic_discovery_buttons"
