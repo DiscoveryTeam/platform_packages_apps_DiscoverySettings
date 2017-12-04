@@ -11,6 +11,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+
 <PreferenceScreen 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
@@ -23,8 +24,8 @@
 
         <com.discovery.settings.preference.SystemSettingSwitchPreference
             android:key="double_tap_sleep_lockscreen"
-            android:title="@string/double_tap_to_sleep_lockscreen_title"
-            android:summary="@string/double_tap_to_sleep_lockscreen_summary"
+            android:title="@string/double_tap_sleep_lock_screen_title"
+            android:summary="@string/double_tap_sleep_lock_screen_summary"
             android:defaultValue="true" />
     </PreferenceCategory>
 
