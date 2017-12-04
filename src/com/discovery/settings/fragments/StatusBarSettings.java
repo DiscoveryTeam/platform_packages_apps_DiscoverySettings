@@ -27,7 +27,7 @@ import android.view.View;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.Utils;
 
 public class StatusBarSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
@@ -38,19 +38,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements OnP
 
         addPreferencesFromResource(R.xml.statusbar_settings);
 
-        final ContentResolver resolver = getActivity().getContentResolver();
-        final PreferenceScreen prefSet = getPreferenceScreen();
-
     }
 
     @Override
     public int getMetricsCategory() {
-      return MetricsEvent.DISCOVERY_SETTINGS;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
+      return MetricsProto.MetricsEvent.DISCOVERY_SETTINGS;
     }
 
     @Override
