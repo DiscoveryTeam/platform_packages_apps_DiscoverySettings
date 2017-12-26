@@ -47,6 +47,6 @@ public class LedSettings extends SettingsPreferenceFragment implements OnPrefere
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        return false;
+        return true;
     }
 }

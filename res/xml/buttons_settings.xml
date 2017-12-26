@@ -23,7 +23,18 @@
             android:targetClass="com.android.systemui.tuner.NavBarActivity" />
     </Preference>
 
-   <PreferenceCategory
+    <PreferenceCategory
+        android:key="power_button"
+        android:title="@string/power_category">
+
+    	<ListPreference
+    	    android:key="torch_power_button_gesture"
+    	    android:title="@string/torch_power_button_gesture_title"
+    	    android:entries="@array/torch_power_button_gesture_entries"
+    	    android:entryValues="@array/torch_power_button_gesture_values" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="volume_category"
         android:title="@string/volume_category">
         <com.discovery.settings.preference.SystemSettingSwitchPreference
@@ -32,7 +43,7 @@
             android:summary="@string/volume_keys_control_media_stream_summary"
             android:defaultValue="false" />
 
-         <com.discovery.settings.preference.SystemSettingSwitchPreference
+        <com.discovery.settings.preference.SystemSettingSwitchPreference
             android:key="volume_button_music_control"
             android:summary="@string/volume_rocker_music_controls_summary"
             android:title="@string/volume_rocker_music_controls_title"

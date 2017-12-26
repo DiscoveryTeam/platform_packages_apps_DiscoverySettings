@@ -267,7 +267,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
                 String useCustom = getResources().getString(
                         R.string.notification_light_use_custom);
                 Preference pref = new Preference(context);
-                pref.setSummary(String.format(summary, useCustom));
+                mFooterPreferenceMixin.createFooterPreference().setTitle(String.format(summary, useCustom));
                 pref.setEnabled(false);
                 mApplicationPrefList.addPreference(pref);
             }
