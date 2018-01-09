@@ -10,13 +10,13 @@
       android:icon="@drawable/ic_discovery_general"
       android:fragment="com.discovery.settings.fragments.GeneralSettings" />
 
-    <!--Preference
-      android:key="button_frag"
-      android:title="@string/discovery_button_settings"
+    <Preference
+      android:key="buttons_frag"
+      android:title="@string/discovery_buttons_settings"
       android:icon="@drawable/ic_discovery_buttons"
       android:fragment="com.discovery.settings.fragments.ButtonsSettings" />
 
-    <Preference
+    <!--Preference
       android:key="power_menu_frag"
       android:title="@string/powermenu_settings_title"
       android:icon="@drawable/ic_discovery_power"

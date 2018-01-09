@@ -39,8 +39,8 @@
     <string name="discovery_notification_settings">Notification</string>
     <string name="discovery_statusbar_settings">Statusbar</string>
     <string name="discovery_navbar_settings">Navbar</string>
-    <string name="discovery_button_settings">Button</string>
-    <string name="discovery_button_category">Button</string>
+    <string name="discovery_buttons_settings">Buttons</string>
+    <string name="discovery_buttons_category">Buttons</string>
     <string name="discovery_misc_settings">Miscellaneous</string>
     <string name="discovery_lockscreen_settings">Lockscreen</string>
     <string name="discovery_additional_settings">Discovery Additions</string>
@@ -102,6 +102,7 @@
     <string name="clock_date_format_custom">Custom java format</string>
 
     <!-- Navbar -->
+    <string name="discovery_navbar_tuner_title">Navbar Tuner</string>
     <string name="enable_navigation_bar_title">Enable software keys</string>
     <string name="enable_navigation_bar_summary">Enable on-screen navigation keys</string>
 
