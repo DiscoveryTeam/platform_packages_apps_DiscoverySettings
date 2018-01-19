@@ -55,6 +55,13 @@
     <!-- Dev Options Enabled by Default -->
     <string name="show_dev_already_enabled">Le opzioni sviluppatore sono attive di default</string>
 
+    <!-- Volume category -->
+    <string name="volume_category">Tasti Volume</string>
+
+    <!-- Volume key controls media stream -->
+    <string name="volume_keys_control_media_stream_title">I tasti volume controllano il volume multimediali</string>
+    <string name="volume_keys_control_media_stream_summary">Forza i tasti volume a controllare il flusso multimediale</string>
+
     <!-- Volume rocker wake -->
     <string name="volume_rocker_wake_title">Risveglio tasti volume</string>
     <string name="volume_rocker_wake_summary">Premere i tasti volume per risvegliare il dispositivo</string>
