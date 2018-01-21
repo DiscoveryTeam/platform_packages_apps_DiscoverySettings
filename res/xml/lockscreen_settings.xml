@@ -30,6 +30,12 @@
     </PreferenceCategory>
 
     <SwitchPreference
+        android:key="fp_unlock_keystore"
+        android:title="@string/fp_unlock_keystore_title"
+        android:summary="@string/fp_unlock_keystore_summary"
+        android:persistent="false" />
+
+    <SwitchPreference
         android:key="fingerprint_success_vib"
         android:title="@string/fprint_sucess_vib_title"
         android:summary="@string/fprint_sucess_vib_summary"
