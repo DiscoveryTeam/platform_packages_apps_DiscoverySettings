@@ -32,12 +32,26 @@ import com.android.settings.Utils;
 
 public class LockscreenSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
+    private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
+
+    private FingerprintManager mFingerprintManager;
+    private SwitchPreference mFingerprintVib;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.lockscreen_settings);
 
+        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+        mFingerprintVib = (SwitchPreference) findPreference(FINGERPRINT_VIB);
+        if (!mFingerprintManager.isHardwareDetected()){
+            prefScreen.removePreference(mFingerprintVib);
+        } else {
+        mFingerprintVib.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));
+        mFingerprintVib.setOnPreferenceChangeListener(this);
+        }
     }
 
     @Override
@@ -47,6 +61,12 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements On
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+        if (preference == mFingerprintVib) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.FINGERPRINT_SUCCESS_VIB, value ? 1 : 0);
+            return true;
+        }
         return false;
     }
 }
