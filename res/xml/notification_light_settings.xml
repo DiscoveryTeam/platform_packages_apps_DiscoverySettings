@@ -24,13 +24,15 @@
         <com.discovery.settings.preference.SystemSettingSwitchPreference
             android:key="notification_light_pulse"
             android:title="@string/notification_light_title"
-            android:summary="@string/notification_light_title_summary" />
+            android:summary="@string/notification_light_title_summary"
+            android:defaultValue="true" />
 
         <com.discovery.settings.fragments.batterylight.NotificationLightPreference
             android:key="default"
             android:title="@string/notification_light_default_value"
             android:persistent="false"
-            android:dependency="notification_light_pulse" />
+            android:dependency="notification_light_pulse"
+            android:defaultValue="true" />
 
     </PreferenceCategory>
 
@@ -41,7 +43,8 @@
         <com.discovery.settings.preference.SystemSettingSwitchPreference
             android:key="notification_light_screen_on_enable"
             android:title="@string/notification_light_screen_on"
-            android:dependency="notification_light_pulse" />
+            android:dependency="notification_light_pulse" 
+            android:defaultValue="true"/>
 
         <com.discovery.settings.preference.SystemSettingSwitchPreference
             android:key="allow_lights"
@@ -53,7 +56,8 @@
             android:key="notification_light_pulse_custom_enable"
             android:title="@string/notification_light_use_custom"
             android:summary="@string/notification_light_use_custom_summary"
-            android:dependency="notification_light_pulse" />
+            android:dependency="notification_light_pulse"
+            android:defaultValue="true" />
 
     </PreferenceCategory>
 

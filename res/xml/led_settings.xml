@@ -16,9 +16,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/leds_category_title">
 
-    <SwitchPreference
+    <com.discovery.settings.preference.SystemSettingSwitchPreference
             android:key="notification_pulse"
-            android:title="@string/notification_pulse_title"/>
+            android:title="@string/notification_pulse_title"
+            android:defaultValue="true"/>
 
     <PreferenceScreen
             android:key="notification_light"
