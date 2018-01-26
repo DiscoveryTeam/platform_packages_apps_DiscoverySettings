@@ -4,7 +4,7 @@ android:viewportWidth="500"
 android:viewportHeight="500"
 android:width="24dp"
 android:height="24dp"
-android:tint="?android:attr/colorAccent">
+android:tint="?android:attr/colorControlNormal">
     <path
         android:pathData="M266.291 260.206c1.166 -5.682 1.769 -11.566 1.769 -17.59 0 -48.861 -39.669 -88.53 -88.53 -88.53 -48.861 0 -88.53 39.669 -88.53 88.53 0 48.861 39.669 88.53 88.53 88.53 2.179 0 4.339 -0.079 6.479 -0.232 14.178 -34.443 43.83 -60.903 80.282 -70.708zm-48.286 -56.066l0 76.951 -76.95 0 76.95 -76.951z"
         android:fillType="evenOdd"
