@@ -17,20 +17,21 @@ import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.WindowManagerGlobal;
 import android.view.IWindowManager;
+import android.view.View;
+
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import java.util.Locale;
-import android.text.TextUtils;
-import android.view.View;
-
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.Utils;
+import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.widget.LockPatternUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,12 +60,16 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements On
             prefSet.removePreference(mFpKeystore);
             prefSet.removePreference(mFingerprintVib);
         } else {
-        mFingerprintVib.setChecked((Settings.System.getInt(getContentResolver(),
-               Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));
-        mFingerprintVib.setOnPreferenceChangeListener(this);
-        mFpKeystore.setChecked((Settings.System.getInt(getContentResolver(),
-               Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
-        mFpKeystore.setOnPreferenceChangeListener(this);
+            if (LockPatternUtils.isDeviceEncryptionEnabled()) {
+                prefSet.removePreference(mFpKeystore);
+            } else {
+                mFpKeystore.setChecked((Settings.System.getInt(getContentResolver(),
+                   Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
+                mFpKeystore.setOnPreferenceChangeListener(this);
+            }
+            mFingerprintVib.setChecked((Settings.System.getInt(getContentResolver(),
+                   Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));
+            mFingerprintVib.setOnPreferenceChangeListener(this);
         }
     }
 
