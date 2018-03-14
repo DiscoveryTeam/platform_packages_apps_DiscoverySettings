@@ -368,6 +368,9 @@
     <!-- Gestures category -->
     <string name="gesture_prefcategor_title">Gestures</string>
 
+    <!-- General category -->
+    <string name="general_prefcategor_title">General</string>
+
     <!-- Lockscreen notif count -->
     <string name="lockscreen_maxnotif_title">Lockscreen notification count</string>
     <string name="lockscreen_maxnotif_sumary">Enable adjustment of max lockscreen notifications</string>
@@ -381,5 +384,8 @@
     <string name="torch_power_button_gesture_none">Disabled</string>
     <string name="torch_power_button_gesture_dt">Double tap power to toggle torch (will add a small delay to single tap)</string>
     <string name="torch_power_button_gesture_lp">Long press power to toggle torch</string>
+
+    <!-- Misc -->
+    <string name="screenshot_delay_title">Screenshot delay</string> 
 
 </resources>

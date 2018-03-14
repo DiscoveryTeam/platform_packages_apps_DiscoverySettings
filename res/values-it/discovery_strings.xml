@@ -316,9 +316,15 @@
     <!-- Gestures category -->
     <string name="gesture_prefcategor_title">Gesti</string>
 
+    <!-- General category -->
+    <string name="general_prefcategor_title">Generale</string>
+
     <!-- Lockscreen notif count -->
     <string name="lockscreen_maxnotif_title">Contatore notifiche lockscreen</string>
     <string name="lockscreen_maxnotif_sumary">Abilita la scelta del limite di notifiche nella schermata di blocco</string>
     <string name="lockscreen_maxnotif_config">Limite notifiche schermata di blocco</string>
+
+    <!-- Misc -->
+    <string name="screenshot_delay_title">Ritardo Screenshot</string> 
 
 </resources>

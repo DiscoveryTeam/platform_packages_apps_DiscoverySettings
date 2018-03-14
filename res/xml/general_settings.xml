@@ -16,6 +16,20 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/discovery_general_settings">
 
+    <!-- General category -->
+    <PreferenceCategory
+        android:key="general_prefcategor"
+        android:title="@string/general_prefcategor_title" >
+        <com.discovery.settings.preference.SystemSettingSeekBarPreference
+            android:key="screenshot_delay"
+            android:title="@string/screenshot_delay_title"
+            android:max="10000"
+            settings:min="100"
+            settings:interval="100"
+            android:defaultValue="100"
+            settings:units="ms"/>
+    </PreferenceCategory>
+
     <!-- Gesture category -->
     <PreferenceCategory
     	android:key="gesture_prefcategor"
