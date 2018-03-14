@@ -45,12 +45,12 @@
     <string name="discovery_version_default">Sconosciuto</string>
 
     <!-- double tap to sleep - lockscreen -->
-    <string name="double_tap_sleep_lock_screen_title">Doppio tap ovunque per spegnere</string>
-    <string name="double_tap_sleep_lock_screen_summary">Doppio tap nella lockscreen per spegnere lo schermo</string>
+    <string name="double_tap_sleep_lock_screen_title">Doppio tocco ovunque per spegnere</string>
+    <string name="double_tap_sleep_lock_screen_summary">Doppio tocco nella lockscreen per spegnere lo schermo</string>
 
     <!-- double tap to sleep - statusbar -->
-    <string name="double_tap_to_sleep_title">Doppio tap per spegnere</string>
-    <string name="double_tap_to_sleep_summary">Doppio tap sulla barra di stato per spegnere lo schermo</string>
+    <string name="double_tap_to_sleep_title">Doppio tocco per spegnere</string>
+    <string name="double_tap_to_sleep_summary">Doppio tocco sulla barra di stato per spegnere lo schermo</string>
 
     <!-- Dev Options Enabled by Default -->
     <string name="show_dev_already_enabled">Le opzioni sviluppatore sono attive di default</string>
@@ -59,7 +59,7 @@
     <string name="volume_category">Tasti Volume</string>
 
     <!-- Volume key controls media stream -->
-    <string name="volume_keys_control_media_stream_title">I tasti volume controllano il volume multimediali</string>
+    <string name="volume_keys_control_media_stream_title">I tasti volume controllano il volume multimediale</string>
     <string name="volume_keys_control_media_stream_summary">Forza i tasti volume a controllare il flusso multimediale</string>
 
     <!-- Volume rocker wake -->
@@ -138,7 +138,9 @@
     <string name="pulse_speed_normal">Normale</string>
     <string name="pulse_speed_slow">Lento</string>
     <string name="pulse_speed_very_slow">Molto lento</string>
+    <string name="battery_light_settings">LED Batteria</string>
     <string name="battery_led_category">LED</string>
+    <string name="battery_light_enable">Abilita</string>
     <string name="battery_light_title">LED Batteria</string>
     <string name="battery_low_pulse_title">Pulsa se il livello di batteria è basso</string>
     <string name="battery_light_list_title">Colori</string>
@@ -146,6 +148,7 @@
     <string name="battery_light_medium_color_title">Caricando</string>
     <string name="battery_light_full_color_title">Carico (90%)</string>
     <string name="battery_light_really_full_color_title">Completamente carico (100%)</string>
+    <string name="battery_light_only_full_charge_title">Acceso solo quanto la batteria è completamente carica</string>
     <string name="notif_led_category">LED</string>
     <string name="notification_light_title">LED notifica</string>
     <string name="notification_light_general_title">Generali</string>
@@ -156,6 +159,8 @@
     <string name="notification_light_no_apps_summary">Per aggiungere il controllo per app, attiva \'%1$s\' e premi \'\u002b\' nella barra del menu</string>
     <string name="allow_lights_title">LED in modalità non disturbare</string>
     <string name="notification_light_screen_on">LED con schermo acceso</string>
+    <string name="notification_light_title_summary">Abilita il LED di notifica</string>
+    <string name="notification_light_zen_mode">LED di notifica in modalità Non Disturbare</string>
 
     <!-- Buttons -->
     <string name="buttons_pref_title">Impostazioni pulsanti</string>
@@ -170,9 +175,9 @@
     <string name="hardware_keys_back_short_press_title">Azione singolo tocco</string>
     <string name="hardware_keys_short_press_title">Azione singolo tocco</string>
     <string name="hardware_keys_long_press_title">Azione pressione prolungata</string>
-    <string name="hardware_keys_home_double_tap_title">Azione doppio tap</string>
-    <string name="hardware_keys_back_double_tap_title">Azione doppio tap</string>
-    <string name="hardware_keys_double_tap_title">Azione doppio tap</string>
+    <string name="hardware_keys_home_double_tap_title">Azione doppio tocco</string>
+    <string name="hardware_keys_back_double_tap_title">Azione doppio tocco</string>
+    <string name="hardware_keys_double_tap_title">Azione doppio tocco</string>
     <string name="hardware_keys_action_nothing">Nessuna azione</string>
     <string name="hardware_keys_action_menu">Apri/chiudi menu</string>
     <string name="hardware_keys_action_app_switch">Recenti</string>
@@ -323,6 +328,12 @@
     <string name="lockscreen_maxnotif_title">Contatore notifiche lockscreen</string>
     <string name="lockscreen_maxnotif_sumary">Abilita la scelta del limite di notifiche nella schermata di blocco</string>
     <string name="lockscreen_maxnotif_config">Limite notifiche schermata di blocco</string>
+
+    <!-- Torcia tasto accensione -->
+    <string name="torch_power_button_gesture_title">Torcia a schermo spento con tasto accensione</string>
+    <string name="torch_power_button_gesture_none">Disabilitato</string>
+    <string name="torch_power_button_gesture_dt">Doppio tocco del tasto accensione per attivare/disattivare la torcia (aggiungerà un piccolo ritardo al singolo tocco)</string>
+    <string name="torch_power_button_gesture_lp">Pressione prolungata per attivare/disattivare la torcia</string>
 
     <!-- Misc -->
     <string name="screenshot_delay_title">Ritardo Screenshot</string> 
