@@ -209,21 +209,21 @@
     <string name="battery_icon_options_title">Icona batteria</string>
 
     <!-- Settings - Battery Style -->
-    <string name="status_bar_battery_style_title">Stile stato batteria</string>
-    <string name="status_bar_battery_style_circle">Cerchio</string>
-    <string name="status_bar_battery_style_big_circle">Cerchio grande</string>
-    <string name="status_bar_battery_style_full_circle">Cerchio pieno</string>
-    <string name="status_bar_battery_style_text">Testo</string>
-    <string name="status_bar_battery_style_hidden">Nascosta</string>
-    <string name="status_bar_battery_style_icon_portrait">Icona verticale</string>
-    <string name="status_bar_battery_style_icon_landscape">Icona orizzontale</string>
+    <string name="battery_style_title">Stile stato batteria</string>
+    <string name="battery_style_circle">Cerchio</string>
+    <string name="battery_style_big_circle">Cerchio grande</string>
+    <string name="battery_style_full_circle">Cerchio pieno</string>
+    <string name="battery_style_text">Testo</string>
+    <string name="battery_style_hidden">Nascosta</string>
+    <string name="battery_style_icon_portrait">Icona verticale</string>
+    <string name="battery_style_icon_landscape">Icona orizzontale</string>
 
     <!-- Settings - Battery percentage -->
-    <string name="status_bar_battery_percentage_title">Mostra percentuale batteria</string>
-    <string name="status_bar_battery_percentage_dialog_title">Percentuale batteria</string>
-    <string name="status_bar_battery_percentage_default">Nascosta (predefinita)</string>
-    <string name="status_bar_battery_percentage_text_inside">Nell\'icona</string>
-    <string name="status_bar_battery_percentage_text_next">Accanto all\'icona</string>
+    <string name="battery_percentage_title">Mostra percentuale batteria</string>
+    <string name="battery_percentage_dialog_title">Percentuale batteria</string>
+    <string name="battery_percentage_default">Nascosta (predefinita)</string>
+    <string name="battery_percentage_text_inside">Nell\'icona</string>
+    <string name="battery_percentage_text_next">Accanto all\'icona</string>
 
     <!-- OMS7-N / Substratum -->
     <!-- Manage applications: show substratum overlays -->

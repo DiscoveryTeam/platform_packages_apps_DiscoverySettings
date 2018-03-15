@@ -189,20 +189,20 @@
     <string name="battery_icon_options_title">Ikona baterii</string>
 
     <!-- Settings - Battery Style -->
-    <string name="status_bar_battery_style_title">Styl ikony baterii</string>
-    <string name="status_bar_battery_style_circle">Okrąg</string>
-    <string name="status_bar_battery_style_dotted_circle">Podzielony okrąg</string>
-    <string name="status_bar_battery_style_text">Tekstowy</string>
-   <string name="status_bar_battery_style_hidden">Ukryty</string>
-    <string name="status_bar_battery_style_icon_portrait">Ikona pionowo</string>
-    <string name="status_bar_battery_style_icon_landscape">Ikona poziomo</string>
+    <string name="battery_style_title">Styl ikony baterii</string>
+    <string name="battery_style_circle">Okrąg</string>
+    <string name="battery_style_dotted_circle">Podzielony okrąg</string>
+    <string name="battery_style_text">Tekstowy</string>
+   <string name="battery_style_hidden">Ukryty</string>
+    <string name="battery_style_icon_portrait">Ikona pionowo</string>
+    <string name="battery_style_icon_landscape">Ikona poziomo</string>
 
     <!-- Settings - Battery percentage -->
-    <string name="status_bar_battery_percentage_title">Pokaż procent naładowania</string>
-    <string name="status_bar_battery_percentage_dialog_title">Umiejscowienie</string>
-    <string name="status_bar_battery_percentage_default">Ukryty (domyślnie)</string>
-    <string name="status_bar_battery_percentage_text_inside">W środku ikony</string>
-    <string name="status_bar_battery_percentage_text_next">Obok ikony</string>
+    <string name="battery_percentage_title">Pokaż procent naładowania</string>
+    <string name="battery_percentage_dialog_title">Umiejscowienie</string>
+    <string name="battery_percentage_default">Ukryty (domyślnie)</string>
+    <string name="battery_percentage_text_inside">W środku ikony</string>
+    <string name="battery_percentage_text_next">Obok ikony</string>
 
     <!-- OMS7-N / Substratum -->
     <!-- Manage applications: show substratum overlays -->

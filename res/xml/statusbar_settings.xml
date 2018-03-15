@@ -28,4 +28,11 @@
             android:defaultValue="true" />
     </PreferenceCategory>
 
+    <!-- Battery icon -->
+    <Preference
+        android:key="battery_settings"
+        android:title="@string/battery_icon_options_title"
+        android:summary="@string/battery_style_summary"
+        android:fragment="com.discovery.settings.fragments.BatterySettings" />
+
 </PreferenceScreen>

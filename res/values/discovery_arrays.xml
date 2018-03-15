@@ -193,33 +193,33 @@
         <item>13</item>
     </string-array>
 
-    <string-array name="status_bar_battery_style_entries" translatable="false">
-        <item>@string/status_bar_battery_style_icon_portrait</item>
-        <item>@string/status_bar_battery_style_icon_landscape</item>
-        <item>@string/status_bar_battery_style_circle</item>
-        <item>@string/status_bar_battery_style_big_circle</item>
-        <item>@string/status_bar_battery_style_full_circle</item>
-        <item>@string/status_bar_battery_style_text</item>
-        <item>@string/status_bar_battery_style_hidden</item>
+    <!-- Battery styles -->
+    <string-array name="battery_style_entries" translatable="false">
+        <item>@string/battery_style_port</item>
+        <item>@string/battery_style_land</item>
+        <item>@string/battery_style_circle</item>
+        <item>@string/battery_style_dotted_circle</item>
+        <item>@string/battery_style_text</item>
+        <item>@string/battery_style_hidden</item>
     </string-array>
 
-    <string-array name="status_bar_battery_style_values" translatable="false">
+    <string-array name="battery_style_values" translatable="false">
         <item>0</item>
-        <item>5</item>
+        <item>1</item>
         <item>2</item>
-        <item>7</item>
-        <item>8</item>
+        <item>3</item>
+        <item>5</item>
         <item>6</item>
-        <item>4</item>
     </string-array>
 
-    <string-array name="status_bar_battery_percentage_entries" translatable="false">
-        <item>@string/status_bar_battery_percentage_default</item>
-        <item>@string/status_bar_battery_percentage_text_inside</item>
-        <item>@string/status_bar_battery_percentage_text_next</item>
+    <!-- Battery styles -->
+    <string-array name="battery_percent_entries" translatable="false">
+        <item>@string/battery_percent_hidden</item>
+        <item>@string/battery_percent_outside</item>
+        <item>@string/battery_percent_inside</item>
     </string-array>
 
-    <string-array name="status_bar_battery_percentage_values" translatable="false">
+    <string-array name="battery_percent_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
