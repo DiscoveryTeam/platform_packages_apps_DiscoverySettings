@@ -217,13 +217,14 @@
     <string name="battery_style_hidden">Nascosta</string>
     <string name="battery_style_icon_portrait">Icona verticale</string>
     <string name="battery_style_icon_landscape">Icona orizzontale</string>
+    <string name="battery_style_summary">Cambia lo stile dell\'icona della batteria nella barra di stato</string>
 
     <!-- Settings - Battery percentage -->
-    <string name="battery_percentage_title">Mostra percentuale batteria</string>
-    <string name="battery_percentage_dialog_title">Percentuale batteria</string>
-    <string name="battery_percentage_default">Nascosta (predefinita)</string>
-    <string name="battery_percentage_text_inside">Nell\'icona</string>
-    <string name="battery_percentage_text_next">Accanto all\'icona</string>
+    <string name="show_battery_percent_title">Mostra la percentuale della batteria</string>
+    <string name="show_battery_percent_summary">Mostra il livello di carica della batteria vicino l\'icona</string>
+    <string name="battery_percent_hidden">Nascosta (predefinita)</string>
+    <string name="battery_percent_inside">Nell\'icona</string>
+    <string name="battery_percent_outside">Accanto all\'icona</string>
 
     <!-- OMS7-N / Substratum -->
     <!-- Manage applications: show substratum overlays -->

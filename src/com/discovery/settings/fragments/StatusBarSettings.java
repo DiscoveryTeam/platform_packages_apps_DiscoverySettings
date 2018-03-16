@@ -9,28 +9,36 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.provider.SearchIndexableResource;
+import android.provider.Settings;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
-import android.provider.Settings;
-import android.util.Log;
-import android.view.WindowManagerGlobal;
-import android.view.IWindowManager;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import java.util.Locale;
 import android.text.TextUtils;
+import android.view.IWindowManager;
 import android.view.View;
+import android.view.WindowManagerGlobal;
+
+import com.android.internal.logging.nano.MetricsProto;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.Utils;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
 
-public class StatusBarSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class StatusBarSettings extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener, Indexable {
+
+    private static final String TAG = "StatusbarSettings";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +46,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements OnP
 
         addPreferencesFromResource(R.xml.statusbar_settings);
 
+        PreferenceScreen prefSet = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
     }
 
     @Override
@@ -46,7 +56,34 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements OnP
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        return false;
+    public boolean onPreferenceTreeClick(Preference preference) {
+        // If we didn't handle it, let preferences handle it.
+        return super.onPreferenceTreeClick(preference);
     }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        return true;
+    }
+
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.statusbar_settings;
+                    result.add(sir);
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    ArrayList<String> result = new ArrayList<String>();
+                    return result;
+                }
+            };
 }
