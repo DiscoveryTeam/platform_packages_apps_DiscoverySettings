@@ -48,6 +48,12 @@
 
     </PreferenceCategory>
 
+    <Preference
+        android:key="status_bar_clock"
+        android:fragment="com.discovery.settings.fragments.ClockDateSettings"
+        android:icon="@drawable/ic_statusbarclock"
+        android:title="@string/status_bar_clock_title" />
+
     <!-- Battery category -->
     <PreferenceCategory
         android:key="battery_prefcategor"
