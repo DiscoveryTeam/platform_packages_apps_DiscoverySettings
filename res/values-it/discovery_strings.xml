@@ -337,6 +337,34 @@
     <string name="torch_power_button_gesture_lp">Pressione prolungata per attivare/disattivare la torcia</string>
 
     <!-- Misc -->
-    <string name="screenshot_delay_title">Ritardo Screenshot</string> 
+    <string name="screenshot_delay_title">Ritardo Screenshot</string>
+
+    <!-- Statusbar ticker -->
+    <string name="ticker_screen_title">Ticker</string>
+    <string name="ticker_mode_title">Ticker notifiche barra di stato</string>
+    <string name="ticker_disabled">Disabilitato</string>
+    <string name="ticker_enabled">Abilitato</string>
+    <string name="ticker_media_enabled">Abilitato per notifiche e musica</string>
+    <string name="ticker_animation_mode_title">Stile animazione ticker</string>
+    <string name="ticker_animation_mode_alpha_fade">Dissolvenza</string>
+    <string name="ticker_animation_mode_scroll">Scorrimento</string>
+
+    <!-- Status bar clock options -->
+    <string name="status_bar_clock_title">Orologio e data</string>
+    <string name="status_bar_clock_summary">Personalizza aspetto orologio e data barra di stato</string>
+    <string name="clock_enabled">Abilitato</string>
+    <string name="clock_disabled">Disabilitato</string>
+    <string name="status_bar_clock_style_reset">Resetta colore</string>
+    <string name="enable_clock_weekday">Giorno della settimana</string>
+    <string name="enable_clock_weekday_summary">Giorno della settimana abbreviato prima dell\'orario</string>
+    <string name="dont_show">Non mostrare</string>
+    <string name="clock_date_display_summary">Visualizza data personalizzata prima dell\'orario</string>
+    <string name="am_pm_clock_normal">Caratteri normali</string>
+    <string name="am_pm_clock_small">Caratteri piccoli</string>
+    <string name="am_pm_clock_none">Non mostrare</string>
+    <string name="clock_date_display_none">Non mostrare</string>
+    <string name="clock_date_display_small">Caratteri piccoli</string>
+    <string name="clock_date_display_normal">Caratteri normali</string>
+    <string name="clock_date_style_normal">Normale</string>
 
 </resources>
