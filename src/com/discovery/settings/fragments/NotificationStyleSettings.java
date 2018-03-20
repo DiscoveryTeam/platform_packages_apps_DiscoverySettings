@@ -8,6 +8,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.os.UserHandle;
+import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceGroup;
 import android.support.v7.preference.PreferenceScreen;
@@ -33,12 +35,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class HeadsUpSettings extends SettingsPreferenceFragment
-        implements Preference.OnPreferenceClickListener {
+public class NotificationStyleSettings extends SettingsPreferenceFragment
+        implements Preference.OnPreferenceClickListener, Preference.OnPreferenceChangeListener {
 
     private static final int DIALOG_BLACKLIST_APPS = 0;
     private static final int DIALOG_WHITELIST_APPS = 1;
     private static final String KEY_HEADS_UP_NOTIFICATIONS_ENABLED = "heads_up_notifications_enabled"; 
+
+    private ListPreference mTickerMode;
+    private ListPreference mTickerAnimation;
 
     private PackageListAdapter mPackageAdapter;
     private PackageManager mPackageManager;
@@ -58,7 +63,10 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Get launch-able applications
-        addPreferencesFromResource(R.xml.heads_up_settings);
+        addPreferencesFromResource(R.xml.discovery_settings_notification_style);
+
+        mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.notification_style_warning_text);
+        
         mPackageManager = getPackageManager();
         mPackageAdapter = new PackageListAdapter(getActivity());
 
@@ -76,6 +84,23 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
 
         mAddBlacklistPref.setOnPreferenceClickListener(this);
         mAddWhitelistPref.setOnPreferenceClickListener(this);
+
+        mTickerMode = (ListPreference) findPreference("ticker_mode");
+        mTickerMode.setOnPreferenceChangeListener(this);
+        int tickerMode = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.STATUS_BAR_SHOW_TICKER,
+                1, UserHandle.USER_CURRENT);
+        updatePrefs();                
+        mTickerMode.setValue(String.valueOf(tickerMode));
+        mTickerMode.setSummary(mTickerMode.getEntry());
+
+        mTickerAnimation = (ListPreference) findPreference("status_bar_ticker_animation_mode");
+        mTickerAnimation.setOnPreferenceChangeListener(this);
+        int tickerAnimationMode = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.STATUS_BAR_TICKER_ANIMATION_MODE,
+                1, UserHandle.USER_CURRENT);
+        mTickerAnimation.setValue(String.valueOf(tickerAnimationMode));
+        mTickerAnimation.setSummary(mTickerAnimation.getEntry());
 
         mHeadsUpNotificationsEnabled = (GlobalSettingSwitchPreference) findPreference(KEY_HEADS_UP_NOTIFICATIONS_ENABLED);
         updatePrefs();
@@ -240,7 +265,31 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
         return true;
     }
 
-     private void addCustomApplicationPref(String packageName, Map<String,Package> map) {
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference.equals(mTickerMode)) {
+            int tickerMode = Integer.parseInt(((String) newValue).toString());
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.STATUS_BAR_SHOW_TICKER, tickerMode, UserHandle.USER_CURRENT);
+            updatePrefs();
+            int index = mTickerMode.findIndexOfValue((String) newValue);
+            mTickerMode.setSummary(
+                    mTickerMode.getEntries()[index]);
+            return true;
+        } else if (preference.equals(mTickerAnimation)) {
+            int tickerAnimationMode = Integer.parseInt(((String) newValue).toString());
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.STATUS_BAR_TICKER_ANIMATION_MODE, tickerAnimationMode, UserHandle.USER_CURRENT);
+            int index = mTickerAnimation.findIndexOfValue((String) newValue);
+            mTickerAnimation.setSummary(
+                    mTickerAnimation.getEntries()[index]);
+            return true;
+        }
+        return false;
+    }
+
+    private void addCustomApplicationPref(String packageName, Map<String,Package> map) {
         Package pkg = map.get(packageName);
         if (pkg == null) {
             pkg = new Package(packageName);
@@ -334,17 +383,25 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
     }
 
     private void updatePrefs() {
-          ContentResolver resolver = getActivity().getContentResolver();
-          boolean enabled = (Settings.System.getInt(resolver,
-                  Settings.System.STATUS_BAR_SHOW_TICKER, 0) == 1) ||
-                  (Settings.System.getInt(resolver,
-                  Settings.System.STATUS_BAR_SHOW_TICKER, 0) == 2);
-        if (enabled) {
+       ContentResolver resolver = getActivity().getContentResolver();
+        boolean tickerEnabled = (Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_SHOW_TICKER, 0) == 1) ||
+                (Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_SHOW_TICKER, 0) == 2);
+        
+        boolean headsUpenabled = (Settings.Global.getInt(resolver,
+                Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 0) == 1);
+
+        if (tickerEnabled) {
             Settings.Global.putInt(resolver,
                 Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 0);
             mBlacklistPrefList.setEnabled(false);
             mWhitelistPrefList.setEnabled(false);            
             mHeadsUpNotificationsEnabled.setEnabled(false);
+        } else if (headsUpenabled) {
+            Settings.System.putInt(resolver,
+                Settings.System.STATUS_BAR_SHOW_TICKER, 0);
+            mTickerMode.setEnabled(false);
         }
     }
 

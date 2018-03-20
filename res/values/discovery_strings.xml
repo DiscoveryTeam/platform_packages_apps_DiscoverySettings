@@ -429,7 +429,9 @@
     <string name="heads_up_blacklist_title">Blacklist</string>  
     <string name="heads_up_whitelist_title">Whitelist</string> 
     <string name="profile_choose_app">Choose app</string> 
-    <string name="dialog_delete_title">Remove</string>
-    <string name="dialog_delete_message">Remove selected item?</string>
+
+    <!-- Notification style -->
+    <string name="notification_style_title">Notification style</string>    
+    <string name="notification_style_warning_text">While you use heads up notifications, you will not be able to use the ticker feature (vice versa).</string>
 
 </resources>

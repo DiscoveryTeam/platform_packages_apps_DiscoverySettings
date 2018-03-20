@@ -41,9 +41,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     private static final String TAG = "StatusbarSettings";
     private static final String STATUS_BAR_SHOW_TICKER = "status_bar_show_ticker";
 
-    private ListPreference mTickerMode;
-    private ListPreference mTickerAnimation;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,23 +50,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
-        mTickerMode = (ListPreference) findPreference("ticker_mode");
-        mTickerMode.setOnPreferenceChangeListener(this);
-        int tickerMode = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.STATUS_BAR_SHOW_TICKER,
-                1, UserHandle.USER_CURRENT);
-        updatePrefs();                
-        mTickerMode.setValue(String.valueOf(tickerMode));
-        mTickerMode.setSummary(mTickerMode.getEntry());
-
-        mTickerAnimation = (ListPreference) findPreference("status_bar_ticker_animation_mode");
-        mTickerAnimation.setOnPreferenceChangeListener(this);
-        int tickerAnimationMode = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.STATUS_BAR_TICKER_ANIMATION_MODE,
-                1, UserHandle.USER_CURRENT);
-        mTickerAnimation.setValue(String.valueOf(tickerAnimationMode));
-        mTickerAnimation.setSummary(mTickerAnimation.getEntry());
-
     }
 
     @Override
@@ -77,39 +57,9 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
       return MetricsProto.MetricsEvent.DISCOVERY_SETTINGS;
     }
 
-    private void updatePrefs() {
-          ContentResolver resolver = getActivity().getContentResolver();
-          boolean enabled = (Settings.Global.getInt(resolver,
-                  Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 0) == 1);
-        if (enabled) {
-            Settings.System.putInt(resolver,
-                Settings.System.STATUS_BAR_SHOW_TICKER, 0);
-            mTickerMode.setEnabled(false);
-        }
-    }
-
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        ContentResolver resolver = getActivity().getContentResolver();
-        if (preference.equals(mTickerMode)) {
-            int tickerMode = Integer.parseInt(((String) newValue).toString());
-            Settings.System.putIntForUser(getContentResolver(),
-                    Settings.System.STATUS_BAR_SHOW_TICKER, tickerMode, UserHandle.USER_CURRENT);
-            updatePrefs();
-            int index = mTickerMode.findIndexOfValue((String) newValue);
-            mTickerMode.setSummary(
-                    mTickerMode.getEntries()[index]);
-            return true;
-        } else if (preference.equals(mTickerAnimation)) {
-            int tickerAnimationMode = Integer.parseInt(((String) newValue).toString());
-            Settings.System.putIntForUser(getContentResolver(),
-                    Settings.System.STATUS_BAR_TICKER_ANIMATION_MODE, tickerAnimationMode, UserHandle.USER_CURRENT);
-            int index = mTickerAnimation.findIndexOfValue((String) newValue);
-            mTickerAnimation.setSummary(
-                    mTickerAnimation.getEntries()[index]);
-            return true;
-        }
-        return false;
+        return true;
     }
 
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
