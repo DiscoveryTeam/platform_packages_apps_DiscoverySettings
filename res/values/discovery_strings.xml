@@ -419,7 +419,14 @@
 
     <!-- Heads up switch -->
     <string name="headsup_prefcategor_title">Heads up</string>
-    <string name="heads_up_switch_title">Heads up</string>
-    <string name="heads_up_switch_summary">Toogle Heads up globally, not per app.</string>
+    <string name="heads_up_notifications">HeadsUp</string> 
+    <string name="summary_heads_up_enabled">HeadsUp notifications are enabled</string> 
+    <string name="summary_heads_up_disabled">HeadsUp notifications are disabled</string> 
+    <string name="add_heads_up_package">Add an app to headsup whitelist</string> 
+    <string name="add_heads_up_whitelist_summary">Disable headsup notifications while using these apps</string> 
+    <string name="heads_up_whitelist_title">Whitelist</string> 
+    <string name="profile_choose_app">Choose app</string> 
+    <string name="dialog_delete_title">Remove</string>
+    <string name="dialog_delete_message">Remove selected item?</string>
 
 </resources>

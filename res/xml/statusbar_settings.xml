@@ -32,11 +32,11 @@
     	android:key="headsup_prefcategor"
     	android:title="@string/headsup_prefcategor_title" >
 
-        <com.discovery.settings.preference.GlobalSettingSwitchPreference
-            android:key="heads_up_notifications_enabled"
-            android:title="@string/heads_up_switch_title"
-            android:summary="@string/heads_up_switch_summary"
-            android:defaultValue="true" />
+        <Preference
+            android:key="heads_up_notifications"
+            android:title="@string/heads_up_notifications"
+            android:fragment="com.discovery.settings.fragments.HeadsUpSettings" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
