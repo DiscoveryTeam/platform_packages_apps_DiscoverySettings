@@ -371,6 +371,9 @@
     <!-- General category -->
     <string name="general_prefcategor_title">General</string>
 
+    <!-- Screenshot category -->
+    <string name="screenshot_prefcategor_title">Screenshot</string>
+
     <!-- Lockscreen notif count -->
     <string name="lockscreen_maxnotif_title">Lockscreen notification count</string>
     <string name="lockscreen_maxnotif_sumary">Enable adjustment of max lockscreen notifications</string>
