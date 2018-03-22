@@ -14,6 +14,7 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceGroup;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.PreferenceViewHolder;
+import android.support.v14.preference.SwitchPreference;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,7 +58,7 @@ public class NotificationStyleSettings extends SettingsPreferenceFragment
     private Map<String, Package> mBlacklistPackages;
     private Map<String, Package> mWhitelistPackages;
 
-    private GlobalSettingSwitchPreference mHeadsUpNotificationsEnabled; 
+    private SwitchPreference mHeadsUpNotificationsEnabled; 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -85,12 +86,18 @@ public class NotificationStyleSettings extends SettingsPreferenceFragment
         mAddBlacklistPref.setOnPreferenceClickListener(this);
         mAddWhitelistPref.setOnPreferenceClickListener(this);
 
+
+        mHeadsUpNotificationsEnabled = (SwitchPreference) findPreference(KEY_HEADS_UP_NOTIFICATIONS_ENABLED);
+        mHeadsUpNotificationsEnabled.setOnPreferenceClickListener(this);
+        int headsUpEnabled = Settings.Global.getInt(getContentResolver(),
+            Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 0);
+        mHeadsUpNotificationsEnabled.setChecked(headsUpEnabled != 0);
+
         mTickerMode = (ListPreference) findPreference("ticker_mode");
         mTickerMode.setOnPreferenceChangeListener(this);
         int tickerMode = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.STATUS_BAR_SHOW_TICKER,
                 1, UserHandle.USER_CURRENT);
-        updatePrefs();                
         mTickerMode.setValue(String.valueOf(tickerMode));
         mTickerMode.setSummary(mTickerMode.getEntry());
 
@@ -101,8 +108,6 @@ public class NotificationStyleSettings extends SettingsPreferenceFragment
                 1, UserHandle.USER_CURRENT);
         mTickerAnimation.setValue(String.valueOf(tickerAnimationMode));
         mTickerAnimation.setSummary(mTickerAnimation.getEntry());
-
-        mHeadsUpNotificationsEnabled = (GlobalSettingSwitchPreference) findPreference(KEY_HEADS_UP_NOTIFICATIONS_ENABLED);
         updatePrefs();
     }
 
@@ -110,6 +115,7 @@ public class NotificationStyleSettings extends SettingsPreferenceFragment
     public void onResume() {
         super.onResume();
         refreshCustomApplicationPrefs();
+        updatePrefs();
     }
 
     @Override
@@ -242,8 +248,8 @@ public class NotificationStyleSettings extends SettingsPreferenceFragment
             showDialog(DIALOG_BLACKLIST_APPS);
         } else if (preference == mAddWhitelistPref) {
             showDialog(DIALOG_WHITELIST_APPS);
-        } else {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
+        } else if (preference != mHeadsUpNotificationsEnabled) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.dialog_delete_title)
                     .setMessage(R.string.dialog_delete_message)
                     .setIconAttribute(android.R.attr.alertDialogIcon)
@@ -259,7 +265,7 @@ public class NotificationStyleSettings extends SettingsPreferenceFragment
                     })
                     .setNegativeButton(android.R.string.cancel, null);
 
-        builder.show();
+            builder.show();
         }
         updatePrefs();
         return true;
@@ -272,11 +278,9 @@ public class NotificationStyleSettings extends SettingsPreferenceFragment
             int tickerMode = Integer.parseInt(((String) newValue).toString());
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.STATUS_BAR_SHOW_TICKER, tickerMode, UserHandle.USER_CURRENT);
-            updatePrefs();
             int index = mTickerMode.findIndexOfValue((String) newValue);
             mTickerMode.setSummary(
                     mTickerMode.getEntries()[index]);
-            return true;
         } else if (preference.equals(mTickerAnimation)) {
             int tickerAnimationMode = Integer.parseInt(((String) newValue).toString());
             Settings.System.putIntForUser(getContentResolver(),
@@ -284,9 +288,8 @@ public class NotificationStyleSettings extends SettingsPreferenceFragment
             int index = mTickerAnimation.findIndexOfValue((String) newValue);
             mTickerAnimation.setSummary(
                     mTickerAnimation.getEntries()[index]);
-            return true;
         }
-        return false;
+        return true;
     }
 
     private void addCustomApplicationPref(String packageName, Map<String,Package> map) {
@@ -383,25 +386,19 @@ public class NotificationStyleSettings extends SettingsPreferenceFragment
     }
 
     private void updatePrefs() {
-       ContentResolver resolver = getActivity().getContentResolver();
-        boolean tickerEnabled = (Settings.System.getInt(resolver,
-                Settings.System.STATUS_BAR_SHOW_TICKER, 0) == 1) ||
-                (Settings.System.getInt(resolver,
-                Settings.System.STATUS_BAR_SHOW_TICKER, 0) == 2);
-        
-        boolean headsUpenabled = (Settings.Global.getInt(resolver,
-                Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 0) == 1);
-
-        if (tickerEnabled) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (mHeadsUpNotificationsEnabled.isChecked()) {
             Settings.Global.putInt(resolver,
-                Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 0);
-            mBlacklistPrefList.setEnabled(false);
-            mWhitelistPrefList.setEnabled(false);            
-            mHeadsUpNotificationsEnabled.setEnabled(false);
-        } else if (headsUpenabled) {
+                Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 1);
             Settings.System.putInt(resolver,
                 Settings.System.STATUS_BAR_SHOW_TICKER, 0);
             mTickerMode.setEnabled(false);
+            mTickerAnimation.setEnabled(false);
+        } else {
+            Settings.Global.putInt(resolver,
+                Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 0);
+            mTickerMode.setEnabled(true);
+            mTickerAnimation.setEnabled(true);
         }
     }
 

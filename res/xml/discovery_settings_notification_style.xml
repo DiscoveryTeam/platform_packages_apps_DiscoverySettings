@@ -32,7 +32,7 @@
 
     </PreferenceCategory>
 
-    <com.discovery.settings.preference.GlobalSettingSwitchPreference
+    <SwitchPreference
             android:key="heads_up_notifications_enabled"
             android:title="@string/heads_up_notifications"
             android:summaryOn="@string/summary_heads_up_enabled"
