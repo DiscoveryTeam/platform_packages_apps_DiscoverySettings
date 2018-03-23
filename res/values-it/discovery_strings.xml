@@ -29,8 +29,8 @@
     <string name="discovery_notification_settings">Notifiche</string>
     <string name="discovery_statusbar_settings">Barra di stato</string>
     <string name="discovery_navbar_settings">Barra di navigazione</string>
-    <string name="discovery_button_settings">Bottoni</string>
-    <string name="discovery_button_category">Bottoni</string>
+    <string name="discovery_buttons_settings">Pulsanti</string>
+    <string name="discovery_buttons_category">Pulsanti</string>
     <string name="discovery_misc_settings">Generali</string>
     <string name="discovery_lockscreen_settings">Schermata\ndi blocco</string>
     <string name="discovery_additional_settings">Aggiunte Discovery</string>
@@ -368,5 +368,18 @@
     <string name="clock_date_display_small">Caratteri piccoli</string>
     <string name="clock_date_display_normal">Caratteri normali</string>
     <string name="clock_date_style_normal">Normale</string>
+
+    <!-- HeadsUp -->
+    <string name="summary_heads_up_enabled">Notifiche HeadsUp abilitate</string> 
+    <string name="summary_heads_up_disabled">Notifiche HeadsUp disabilitate</string>
+    <string name="add_heads_up_blacklist_package">Aggiungi un\'app alla blacklist di HeadsUp</string>  
+    <string name="add_heads_up_whitelist_package">Aggiungi un\'app alla whitelist di HeadsUp</string> 
+    <string name="add_heads_up_blacklist_summary">Disabilita le notifiche HeadsUp da queste app</string>
+    <string name="add_heads_up_whitelist_summary">Disabilita le notifiche HeadsUp mentre usi queste app</string> 
+    <string name="profile_choose_app">Scegli app</string> 
+
+    <!-- Notification style -->
+    <string name="notification_style_title">Stile Notifiche</string>    
+    <string name="notification_style_warning_text">Mentre usi le notifiche HeadsUp, non potrai utilizzare il ticker (e viceversa)</string>
 
 </resources>
