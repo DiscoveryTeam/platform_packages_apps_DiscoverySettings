@@ -17,11 +17,17 @@
     android:title="@string/discovery_general_settings">
 
     <!-- General category -->
-    <!-- <PreferenceCategory
+    <PreferenceCategory
         android:key="general_prefcategor"
         android:title="@string/general_prefcategor_title" >
         
-    </PreferenceCategory> -->
+        <com.discovery.settings.preference.GlobalSettingSwitchPreference
+            android:key="system_default_animation"
+            android:title="@string/system_default_animation_title"
+            android:summary="@string/system_default_animation_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
 
     <!-- Gesture category -->
     <!--<PreferenceCategory

@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     Copyright (C) 2017 Discovery
@@ -381,5 +382,9 @@
     <!-- Notification style -->
     <string name="notification_style_title">Stile Notifiche</string>    
     <string name="notification_style_warning_text">Mentre usi le notifiche HeadsUp, non potrai utilizzare il ticker (e viceversa)</string>
+
+    <!-- System default animation -->
+    <string name="system_default_animation_title">Stile animazione Android P</string>
+    <string name="system_default_animation_summary">Abilita le animazioni di \"Default\" di Android P</string>
 
 </resources>

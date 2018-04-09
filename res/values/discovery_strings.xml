@@ -437,4 +437,8 @@
     <string name="notification_style_title">Notification style</string>    
     <string name="notification_style_warning_text">While you use heads up notifications, you will not be able to use the ticker feature (vice versa).</string>
 
+    <!-- System default animation -->
+    <string name="system_default_animation_title">Android P animation style</string>
+    <string name="system_default_animation_summary">Enable Android P \"Default\" animations</string>
+
 </resources>
