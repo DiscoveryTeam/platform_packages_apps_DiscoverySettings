@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     Copyright (C) 2017 Discovery
@@ -30,7 +31,7 @@
     <string name="discovery_statusbar_settings">Barra di stato</string>
     <string name="discovery_navbar_settings">Barra di navigazione</string>
     <string name="discovery_buttons_settings">Pulsanti</string>
-    <string name="discovery_button_category">Pulsanti</string>
+    <string name="discovery_buttons_category">Pulsanti</string>
     <string name="discovery_misc_settings">Generali</string>
     <string name="discovery_lockscreen_settings">Schermata\ndi blocco</string>
     <string name="discovery_additional_settings">Aggiunte Discovery</string>
@@ -381,5 +382,9 @@
     <!-- Notification style -->
     <string name="notification_style_title">Stile Notifiche</string>    
     <string name="notification_style_warning_text">Mentre usi le notifiche HeadsUp, non potrai utilizzare il ticker (e viceversa)</string>
+
+    <!-- System default animation -->
+    <string name="system_default_animation_title">Stile animazione Android P</string>
+    <string name="system_default_animation_summary">Abilita le animazioni di \"Default\" di Android P</string>
 
 </resources>
