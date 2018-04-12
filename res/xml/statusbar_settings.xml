@@ -70,4 +70,16 @@
             android:entryValues="@array/battery_percent_values" />
     
     </PreferenceCategory>
+
+    <PreferenceCategory
+	android:key="traffic_prefcategory"
+        android:title="@string/network_traffic_title">
+
+	<Preference
+            android:key="traffic"
+            android:fragment="com.discovery.settings.fragments.TrafficSettings"
+            android:title="@string/traffic_title" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
