@@ -386,4 +386,8 @@
     <string name="system_default_animation_title">Stile animazione Android P</string>
     <string name="system_default_animation_summary">Abilita le animazioni di \"Default\" di Android P</string>
 
+    <!-- Brightness icon-->
+    <string name="brightness_icon_title">Icona luminosità</string>
+    <string name="brightness_icon_summary">Mostra un\'icona alla sinistra dello slider della luminosità per impostare la luminosità automatica</string>
+
 </resources>

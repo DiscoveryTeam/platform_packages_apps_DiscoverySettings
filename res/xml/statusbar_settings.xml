@@ -82,4 +82,16 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="qs_prefcategory"
+        android:title="@string/qs_prefcategor_title">
+
+        <com.discovery.settings.preference.SystemSettingSwitchPreference
+            android:key="qs_show_brightness_icon"
+            android:title="@string/brightness_icon_title"
+            android:summary="@string/brightness_icon_summary"
+            android:defaultValue="false"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
