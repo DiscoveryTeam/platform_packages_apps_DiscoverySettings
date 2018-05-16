@@ -71,6 +71,11 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements On
                    Settings.System.FINGERPRINT_SUCCESS_VIB, 1) == 1));
             mFingerprintVib.setOnPreferenceChangeListener(this);
         }
+
+        mFaceUnlock = (SecureSettingSwitchPreference) findPreference("face_auto_unlock");
+        if (!CustomUtils.isAppInstalled(getContext(), "com.android.facelock")) {
+            prefSet.removePreference(mFaceUnlock);
+        }
     }
 
     @Override
