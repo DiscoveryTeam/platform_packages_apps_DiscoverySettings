@@ -220,6 +220,10 @@
     <string name="hardware_keys_action_screenshot">Screenshot</string>
     <string name="hardware_keys_action_partial_screenshot">Partial screenshot</string>
     <string name="hardware_keys_action_pip">Picture-in-Picture</string>
+    <string name="hardware_keys_menu_double_tap_title">Double swipe right</string>
+    <string name="hardware_keys_menu_short_press_title">Single swipe right</string>
+    <string name="hardware_keys_app_switch_double_tap_title">Double swipe left</string>
+    <string name="hardware_keys_app_switch_short_press_title">Single swipe left</string>
     <string name="home_wake_key_title">Home button wake device</string>
     <string name="home_wake_key_summary">Wake device by pressing home button</string>
     <string name="home_press_vibration_title">Disable home button vibration</string>
