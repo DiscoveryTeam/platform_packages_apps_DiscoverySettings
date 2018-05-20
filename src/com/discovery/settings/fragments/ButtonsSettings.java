@@ -217,7 +217,9 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements OnPre
             int longPressMenuAction = Settings.System.getInt(resolver,
                     Settings.System.KEY_MENU_LONG_PRESS_ACTION,
                     defaultMenuLongPressAction);
-            mMenuLongPressAction = initActionList(KEY_MENU_LONG_PRESS, longPressMenuAction);
+            if (((ListPreference) getPreferenceScreen().findPreference(KEY_MENU_LONG_PRESS)) != null) {
+                mMenuLongPressAction = initActionList(KEY_MENU_LONG_PRESS, longPressMenuAction);
+            }
 
             int doubleTapMenuAction = Settings.System.getInt(resolver,
                     Settings.System.KEY_MENU_DOUBLE_TAP_ACTION,
@@ -259,7 +261,9 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements OnPre
             int longPressBackAction = Settings.System.getInt(resolver,
                     Settings.System.KEY_BACK_LONG_PRESS_ACTION,
                     defaultBackLongPressAction);
-            mBackLongPressAction = initActionList(KEY_BACK_LONG_PRESS, longPressBackAction);
+            if (((ListPreference) getPreferenceScreen().findPreference(KEY_BACK_LONG_PRESS)) != null) {
+                mBackLongPressAction = initActionList(KEY_BACK_LONG_PRESS, longPressBackAction);
+            }
 
             int doubleTapBackAction = Settings.System.getInt(resolver,
                     Settings.System.KEY_BACK_DOUBLE_TAP_ACTION,
@@ -301,8 +305,10 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements OnPre
             int longPressAppSwitchAction = Settings.System.getInt(resolver,
                     Settings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION,
                     defaultAppSwitchLongPressAction);
-            mAppSwitchLongPressAction = initActionList(KEY_APP_SWITCH_LONG_PRESS, longPressAppSwitchAction);
-
+            if (((ListPreference) getPreferenceScreen().findPreference(KEY_APP_SWITCH_LONG_PRESS)) != null) {
+                mAppSwitchLongPressAction = initActionList(KEY_APP_SWITCH_LONG_PRESS, longPressAppSwitchAction);
+            }
+            
             int doubleTapAppSwitchAction = Settings.System.getInt(resolver,
                     Settings.System.KEY_APP_SWITCH_DOUBLE_TAP_ACTION,
                     defaultDoubleTapAppSwitchAction);
@@ -343,12 +349,16 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements OnPre
             int longPressAssistAction = Settings.System.getInt(resolver,
                     Settings.System.KEY_ASSIST_LONG_PRESS_ACTION,
                     defaultAssistLongPressAction);
-            mAssistLongPressAction = initActionList(KEY_ASSIST_LONG_PRESS, longPressAssistAction);
+            if (((ListPreference) getPreferenceScreen().findPreference(KEY_ASSIST_LONG_PRESS)) != null) {
+                mAssistLongPressAction = initActionList(KEY_ASSIST_LONG_PRESS, longPressAssistAction);
+            }
 
             int doubleTapAssistAction = Settings.System.getInt(resolver,
                     Settings.System.KEY_ASSIST_DOUBLE_TAP_ACTION,
                     defaultDoubleTapAssistAction);
-            mAssistDoubleTapAction = initActionList(KEY_ASSIST_DOUBLE_TAP, doubleTapAssistAction);
+            if (((ListPreference) getPreferenceScreen().findPreference(KEY_ASSIST_DOUBLE_TAP)) != null) {
+                        mAssistDoubleTapAction = initActionList(KEY_ASSIST_DOUBLE_TAP, doubleTapAssistAction);
+            }
 
             hasAnyBindableKey = true;
         } else {
