@@ -472,6 +472,8 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements OnPre
             boolean value = (Boolean) objValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.ENABLE_HW_KEYS, value ? 1 : 0);
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.NAVIGATION_BAR_ENABLED, value ? 0 : 1);    
             return true;
         }
         return false;
