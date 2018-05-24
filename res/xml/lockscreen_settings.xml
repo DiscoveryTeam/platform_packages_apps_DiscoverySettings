@@ -29,6 +29,12 @@
             android:defaultValue="true" />
     </PreferenceCategory>
 
+    <com.discovery.settings.preference.SystemSettingSwitchPreference
+            android:key="wallpaper_keyguard_wallpaper_tint"
+            android:title="@string/wallpaper_tint_keyguard"
+            android:summary="@string/wallpaper_tint_summary"
+            android:defaultValue="true" />
+
     <com.discovery.settings.preference.SecureSettingSwitchPreference
         android:key="face_auto_unlock"
         android:title="@string/face_auto_unlock_title"

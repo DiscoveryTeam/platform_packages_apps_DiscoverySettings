@@ -32,6 +32,12 @@
     	android:key="notification_style_prefcategor"
     	android:title="@string/notification_style_title" >
 
+        <com.discovery.settings.preference.SystemSettingSwitchPreference
+            android:key="wallpaper_notification_shade_wallpaper_tint"
+            android:title="@string/wallpaper_tint_notification_shade"
+            android:summary="@string/wallpaper_tint_summary"
+            android:defaultValue="true" />
+
         <Preference
             android:key="notification_style"
             android:title="@string/notification_style_title"

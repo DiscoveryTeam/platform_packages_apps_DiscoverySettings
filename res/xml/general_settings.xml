@@ -27,6 +27,18 @@
             android:summary="@string/system_default_animation_summary"
             android:defaultValue="false" />
 
+        <com.discovery.settings.preference.SystemSettingSwitchPreference
+            android:key="wallpaper_power_menu_tint"
+            android:title="@string/wallpaper_tint_power_menu"
+            android:summary="@string/wallpaper_tint_summary"
+            android:defaultValue="true" />
+
+        <com.discovery.settings.preference.SystemSettingSwitchPreference
+            android:key="wallpaper_recents_tint"
+            android:title="@string/wallpaper_tint_recents"
+            android:summary="@string/wallpaper_tint_summary"
+            android:defaultValue="true" />
+
     </PreferenceCategory>
 
     <!-- Gesture category -->

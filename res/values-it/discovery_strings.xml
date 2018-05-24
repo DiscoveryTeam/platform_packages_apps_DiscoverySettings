@@ -395,4 +395,11 @@
     <string name="brightness_icon_title">Icona luminosità</string>
     <string name="brightness_icon_summary">Mostra un\'icona alla sinistra dello slider della luminosità per impostare la luminosità automatica</string>
 
+    <!-- Wallpaper tint -->
+    <string name="wallpaper_tint_power_menu">Colore sfondo power menu</string>
+    <string name="wallpaper_tint_recents">Colore sfondo app recenti</string>
+    <string name="wallpaper_tint_keyguard">Colore sfondo schermata di blocco</string>
+    <string name="wallpaper_tint_notification_shade">Colore sfondo notifiche</string>
+    <string name="wallpaper_tint_summary">Applica un colore allo sfondo basandosi sul wallpaper della home</string>
+
 </resources>

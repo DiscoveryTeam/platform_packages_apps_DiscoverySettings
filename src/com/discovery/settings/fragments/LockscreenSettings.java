@@ -33,6 +33,10 @@ import com.android.settings.Utils;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.widget.LockPatternUtils;
 
+import com.android.internal.util.discovery.DUtils;
+
+import com.discovery.settings.preference.SecureSettingSwitchPreference;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +48,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements On
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFpKeystore;
     private SwitchPreference mFingerprintVib;
+    private SecureSettingSwitchPreference mFaceUnlock;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,7 +78,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements On
         }
 
         mFaceUnlock = (SecureSettingSwitchPreference) findPreference("face_auto_unlock");
-        if (!CustomUtils.isAppInstalled(getContext(), "com.android.facelock")) {
+        if (!DUtils.isAppInstalled(getContext(), "com.android.facelock")) {
             prefSet.removePreference(mFaceUnlock);
         }
     }
